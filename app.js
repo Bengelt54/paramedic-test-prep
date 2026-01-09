@@ -1,5 +1,6 @@
 let currentQuestionIndex = 0;
 let shuffledQuestions = [];
+let activeModule = "";
 
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -9,8 +10,23 @@ function shuffle(array) {
   return array;
 }
 
-function loadQuestions() {
-  shuffledQuestions = shuffle([...QUESTIONS]);
+function startQuiz(module) {
+  activeModule = module;
+  currentQuestionIndex = 0;
+
+  shuffledQuestions = shuffle(
+    QUESTIONS.filter(q => q.module === module)
+  );
+
+  if (shuffledQuestions.length === 0) {
+    alert("No questions available for this topic yet.");
+    return;
+  }
+
+  document.getElementById("menu").style.display = "none";
+  document.getElementById("quiz").style.display = "block";
+
+  showQuestion();
 }
 
 function showQuestion() {
@@ -60,11 +76,14 @@ function checkAnswer(button, selectedIndex) {
 function nextQuestion() {
   currentQuestionIndex++;
   if (currentQuestionIndex >= shuffledQuestions.length) {
-    alert("End of quiz. Reload page to start again.");
+    alert("End of topic. Returning to menu.");
+    goBack();
     return;
   }
   showQuestion();
 }
 
-loadQuestions();
-showQuestion();
+function goBack() {
+  document.getElementById("quiz").style.display = "none";
+  document.getElementById("menu").style.display = "block";
+}
