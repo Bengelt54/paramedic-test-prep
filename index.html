@@ -46,15 +46,29 @@
 
 <h1>Paramedic National Registry Test Prep</h1>
 
-<div class="question-box">
+<div id="menu" class="question-box">
+  <h2>Select a Topic</h2>
+  <button onclick="startQuiz('Anatomy')">Anatomy</button>
+  <button onclick="startQuiz('Airway')">Airway</button>
+  <button onclick="startQuiz('Medical')">Medical</button>
+  <button onclick="startQuiz('Cardiology')">Cardiology</button>
+  <button onclick="startQuiz('Trauma')">Trauma</button>
+  <button onclick="startQuiz('Operations')">Operations</button>
+  <button onclick="startQuiz('ClinicalJudgment')">Clinical Judgment</button>
+</div>
+
+<div id="quiz" class="question-box" style="display:none;">
   <div id="question"></div>
   <div id="answers"></div>
   <div id="explanation"></div>
   <button onclick="nextQuestion()">Next Question</button>
+  <button onclick="goBack()">Back to Topics</button>
 </div>
 
 <script src="questions.js"></script>
 <script src="app.js"></script>
 
 </body>
+
 </html>
+
