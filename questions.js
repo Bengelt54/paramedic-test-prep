@@ -11,7 +11,7 @@ const QUESTIONS = [
       "10 years old"
     ],
     correct: 1,
-    [cite_start]explanation: "Using the formula 90 + (2 * age) = systolic BP: 90 + (2 * 5) = 100 mmHg. [cite: 1]"
+    explanation: "Using the formula 90 + (2 * age) = systolic BP: 90 + (2 * 5) = 100 mmHg."
   },
   {
     module: "Anatomy",
@@ -24,7 +24,7 @@ const QUESTIONS = [
       "Loss of sensation in the fingers"
     ],
     correct: 1,
-    [cite_start]explanation: "Nuchal rigidity (stiff neck) is a hallmark sign of meningitis, often accompanied by fever and petechiae (rash). [cite: 2]"
+    explanation: "Nuchal rigidity (stiff neck) is a hallmark sign of meningitis, often accompanied by fever and petechiae (rash). [cite: 2]"
   },
   {
     module: "Anatomy",
@@ -37,7 +37,7 @@ const QUESTIONS = [
       "Pancreas"
     ],
     correct: 2,
-    [cite_start]explanation: "Kehr's Sign is referred pain to the left shoulder caused by irritation of the diaphragm, often from a ruptured spleen. [cite: 3]"
+    explanation: "Kehr's Sign is referred pain to the left shoulder caused by irritation of the diaphragm, often from a ruptured spleen. [cite: 3]"
   },
   {
     module: "Anatomy",
@@ -50,7 +50,7 @@ const QUESTIONS = [
       "Rooting Reflex"
     ],
     correct: 1,
-    [cite_start]explanation: "A positive Babinski reflex (fanning of toes) is normal in infants but pathological in adults, indicating a neurological issue. [cite: 4]"
+    explanation: "A positive Babinski reflex (fanning of toes) is normal in infants but pathological in adults, indicating a neurological issue. [cite: 4]"
   },
   {
     module: "Anatomy",
@@ -63,7 +63,7 @@ const QUESTIONS = [
       "Respiratory Alkalosis"
     ],
     correct: 2,
-    [cite_start]explanation: "Vomiting causes the loss of hydrochloric acid from the stomach, leaving an excess of bicarbonate in the blood, leading to metabolic alkalosis. [cite: 5]"
+    explanation: "Vomiting causes the loss of hydrochloric acid from the stomach, leaving an excess of bicarbonate in the blood, leading to metabolic alkalosis. [cite: 5]"
   },
   {
     module: "Anatomy",
@@ -76,7 +76,7 @@ const QUESTIONS = [
       "Metabolic Acidosis"
     ],
     correct: 2,
-    explanation: "Hypoventilation causes CO2 retention. [cite_start]Excess CO2 combines with water to form carbonic acid, lowering blood pH (Respiratory Acidosis). [cite: 6]"
+    explanation: "Hypoventilation causes CO2 retention. Excess CO2 combines with water to form carbonic acid, lowering blood pH (Respiratory Acidosis). [cite: 6]"
   },
   {
     module: "Anatomy",
@@ -89,7 +89,7 @@ const QUESTIONS = [
       "L1-L5"
     ],
     correct: 1,
-    explanation: "The Phrenic Nerve, which controls the diaphragm, originates from C3, C4, and C5. ('C3, 4, 5 keep the diaphragm alive')[cite_start]. [cite: 7]"
+    explanation: "The Phrenic Nerve, which controls the diaphragm, originates from C3, C4, and C5. ('C3, 4, 5 keep the diaphragm alive'). [cite: 7]"
   },
   {
     module: "Anatomy",
@@ -102,7 +102,7 @@ const QUESTIONS = [
       "Pancreas and Gallbladder"
     ],
     correct: 1,
-    [cite_start]explanation: "Reye's Syndrome is a rare but serious condition causing swelling in the liver and brain, often linked to aspirin use in children recovering from viral infections. [cite: 8]"
+    explanation: "Reye's Syndrome is a rare but serious condition causing swelling in the liver and brain, often linked to aspirin use in children recovering from viral infections. [cite: 8]"
   },
   {
     module: "Anatomy",
@@ -115,7 +115,7 @@ const QUESTIONS = [
       "Kidney"
     ],
     correct: 1,
-    [cite_start]explanation: "Murphy's Sign (inspiratory arrest on palpation of the RUQ) is a classic sign of Cholecystitis (gallbladder inflammation). [cite: 9]"
+    explanation: "Murphy's Sign (inspiratory arrest on palpation of the RUQ) is a classic sign of Cholecystitis (gallbladder inflammation). [cite: 9]"
   },
   {
     module: "Anatomy",
@@ -128,7 +128,7 @@ const QUESTIONS = [
       "Respiratory Acidosis"
     ],
     correct: 2,
-    [cite_start]explanation: "Ingestion of acidic substances like aspirin directly increases the acid load in the body, leading to Metabolic Acidosis. [cite: 10]"
+    explanation: "Ingestion of acidic substances like aspirin directly increases the acid load in the body, leading to Metabolic Acidosis. [cite: 10]"
   },
   {
     module: "Anatomy",
@@ -141,7 +141,7 @@ const QUESTIONS = [
       "L1"
     ],
     correct: 1,
-    explanation: "The T10 dermatome corresponds to the level of the umbilicus. [cite_start]T4 is at the nipple line. [cite: 11]"
+    explanation: "The T10 dermatome corresponds to the level of the umbilicus. T4 is at the nipple line. [cite: 11]"
   },
   {
     module: "Anatomy",
@@ -154,7 +154,7 @@ const QUESTIONS = [
       "Facilitated Diffusion"
     ],
     correct: 2,
-    [cite_start]explanation: "Osmosis is the specific term for the movement of water down its concentration gradient (or towards higher solute concentration). [cite: 12]"
+    explanation: "Osmosis is the specific term for the movement of water down its concentration gradient (or towards higher solute concentration). [cite: 12]"
   },
   {
     module: "Anatomy",
@@ -167,7 +167,7 @@ const QUESTIONS = [
       "Magnesium (Mg++)"
     ],
     correct: 2,
-    [cite_start]explanation: "Potassium is the primary intracellular cation, while Sodium is the primary extracellular cation. [cite: 13]"
+    explanation: "Potassium is the primary intracellular cation, while Sodium is the primary extracellular cation. [cite: 13]"
   },
   {
     module: "Anatomy",
@@ -180,7 +180,7 @@ const QUESTIONS = [
       "Ventilate with BVM"
     ],
     correct: 0,
-    [cite_start]explanation: "Per the text, CPR (chest compressions) should be initiated on a newborn if the HR does not go up after O2/ventilation. [cite: 14]"
+    explanation: "Per the text, CPR (chest compressions) should be initiated on a newborn if the HR does not go up after O2/ventilation. [cite: 14]"
   },
   {
     module: "Anatomy",
@@ -193,7 +193,7 @@ const QUESTIONS = [
       "Diverticulitis"
     ],
     correct: 2,
-    [cite_start]explanation: "McBurney's point is located in the Right Lower Quadrant (RLQ) and is the classic site of tenderness for Appendicitis. [cite: 15]"
+    explanation: "McBurney's point is located in the Right Lower Quadrant (RLQ) and is the classic site of tenderness for Appendicitis. [cite: 15]"
   },
   {
     module: "Anatomy",
@@ -206,7 +206,7 @@ const QUESTIONS = [
       "Water"
     ],
     correct: 1,
-    [cite_start]explanation: "Without oxygen, cells rely on anaerobic metabolism, which produces lactic acid as a waste product, potentially causing metabolic acidosis. [cite: 16]"
+    explanation: "Without oxygen, cells rely on anaerobic metabolism, which produces lactic acid as a waste product, potentially causing metabolic acidosis. [cite: 16]"
   },
   {
     module: "Anatomy",
@@ -219,7 +219,7 @@ const QUESTIONS = [
       "Diencephalon"
     ],
     correct: 2,
-    [cite_start]explanation: "The cerebellum ('little brain') regulates balance, posture, and fine motor coordination. [cite: 17]"
+    explanation: "The cerebellum ('little brain') regulates balance, posture, and fine motor coordination. [cite: 17]"
   },
   {
     module: "Anatomy",
@@ -232,7 +232,7 @@ const QUESTIONS = [
       "Myocardial infarction of the right ventricle"
     ],
     correct: 1,
-    [cite_start]explanation: "Cor Pulmonale is failure of the right side of the heart caused by high pressure in the pulmonary arteries (pulmonary hypertension), often from chronic lung disease. [cite: 18]"
+    explanation: "Cor Pulmonale is failure of the right side of the heart caused by high pressure in the pulmonary arteries (pulmonary hypertension), often from chronic lung disease. [cite: 18]"
   },
   {
     module: "Anatomy",
@@ -245,7 +245,7 @@ const QUESTIONS = [
       "Aortic aneurysm"
     ],
     correct: 1,
-    [cite_start]explanation: "Cullen's Sign (periumbilical ecchymosis) indicates bleeding within the abdominal cavity (intraperitoneal hemorrhage). [cite: 19]"
+    explanation: "Cullen's Sign (periumbilical ecchymosis) indicates bleeding within the abdominal cavity (intraperitoneal hemorrhage). [cite: 19]"
   },
   {
     module: "Anatomy",
@@ -258,7 +258,7 @@ const QUESTIONS = [
       "Body of C3"
     ],
     correct: 1,
-    [cite_start]explanation: "A Hangman's fracture is a fracture of the axis (C2), specifically involving the odontoid process (dens), often caused by hyperextension. [cite: 20]"
+    explanation: "A Hangman's fracture is a fracture of the axis (C2), specifically involving the odontoid process (dens), often caused by hyperextension. [cite: 20]"
   },
   //Airway
     {
@@ -610,7 +610,7 @@ const QUESTIONS = [
       "Streptococcus"
     ],
     correct: 1,
-    explanation: "[cite_start]RSV is the primary viral cause of bronchiolitis in children under 2 years old. [cite: 1]"
+    explanation: "RSV is the primary viral cause of bronchiolitis in children under 2 years old. [cite: 1]"
   },
   {
     module: "Airway",
@@ -623,7 +623,7 @@ const QUESTIONS = [
       "Gasps with long pauses"
     ],
     correct: 1,
-    explanation: "[cite_start]Cheyne-Stokes is a rhythmic pattern of increasing and decreasing depth followed by apnea, often seen in stroke or head injury. [cite: 2]"
+    explanation: "Cheyne-Stokes is a rhythmic pattern of increasing and decreasing depth followed by apnea, often seen in stroke or head injury. [cite: 2]"
   },
   {
     module: "Airway",
@@ -636,7 +636,7 @@ const QUESTIONS = [
       "Croup"
     ],
     correct: 1,
-    explanation: "[cite_start]ACE inhibitors (ending in -pril) can cause non-allergic angioedema, manifesting as swelling of the tongue/lips/larynx. [cite: 3]"
+    explanation: "ACE inhibitors (ending in -pril) can cause non-allergic angioedema, manifesting as swelling of the tongue/lips/larynx. [cite: 3]"
   },
   {
     module: "Airway",
@@ -649,7 +649,7 @@ const QUESTIONS = [
       "Absent breath sounds"
     ],
     correct: 1,
-    explanation: "[cite_start]Air escaping into the mediastinum can cause subcutaneous emphysema in the neck and a crunching sound (Hamman's sign) synchronized with the heartbeat. [cite: 4]"
+    explanation: "Air escaping into the mediastinum can cause subcutaneous emphysema in the neck and a crunching sound (Hamman's sign) synchronized with the heartbeat. [cite: 4]"
   },
   {
     module: "Airway",
@@ -662,7 +662,7 @@ const QUESTIONS = [
       "Tachypnea"
     ],
     correct: 1,
-    explanation: "[cite_start]Cyanosis is a late sign of hypoxia. Anxiety and tachycardia appear much earlier. [cite: 5]"
+    explanation: "Cyanosis is a late sign of hypoxia. Anxiety and tachycardia appear much earlier. [cite: 5]"
   },
   {
     module: "Airway",
@@ -675,7 +675,7 @@ const QUESTIONS = [
       "Carbon monoxide poisoning"
     ],
     correct: 1,
-    explanation: "[cite_start]Clubbing (enlargement of fingertips) is a sign of long-term, chronic hypoxia seen in conditions like COPD or cystic fibrosis. [cite: 6]"
+    explanation: "Clubbing (enlargement of fingertips) is a sign of long-term, chronic hypoxia seen in conditions like COPD or cystic fibrosis. [cite: 6]"
   },
   {
     module: "Airway",
@@ -688,7 +688,7 @@ const QUESTIONS = [
       "Direct heart injury"
     ],
     correct: 1,
-    explanation: "[cite_start]High pressure in the chest squeezes the vena cava, preventing blood from returning to the heart (decreased preload), causing shock. [cite: 7]"
+    explanation: "High pressure in the chest squeezes the vena cava, preventing blood from returning to the heart (decreased preload), causing shock. [cite: 7]"
   },
 // --- TRAUMA MODULE ---
   {
