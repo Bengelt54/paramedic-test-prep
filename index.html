@@ -9,186 +9,136 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #f0f2f5;
       padding: 20px;
-      max-width: 800px; /* Made slightly wider for the grid */
+      max-width: 600px;
       margin: auto;
       color: #333;
     }
     h1 {
       text-align: center;
       color: #0056b3;
-      margin-bottom: 30px;
     }
     .container {
       background: #ffffff;
       padding: 30px;
       border-radius: 12px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      min-height: 400px;
     }
     
     /* --- UTILITIES --- */
     .hidden { display: none; }
-    
     .btn {
       display: block;
       width: 100%;
-      padding: 14px;
+      padding: 12px;
+      margin: 10px 0;
       font-size: 16px;
-      font-weight: bold;
       cursor: pointer;
       background-color: #007bff;
       color: white;
       border: none;
       border-radius: 6px;
-      transition: background 0.2s, transform 0.1s;
+      transition: background 0.2s;
     }
     .btn:hover { background-color: #0056b3; }
-    .btn:active { transform: scale(0.98); }
     .btn:disabled { background-color: #ccc; cursor: not-allowed; }
-    
-    .btn-secondary { background-color: #6c757d; margin-top: 20px;}
-    .btn-secondary:hover { background-color: #545b62; }
 
-    /* --- TOPIC GRID --- */
-    #topic-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 15px;
-      margin-top: 20px;
-    }
-    
-    .topic-card {
-      background: #e7f1ff;
-      color: #0056b3;
-      padding: 20px;
-      border-radius: 8px;
-      text-align: center;
-      cursor: pointer;
-      border: 2px solid transparent;
-      transition: all 0.2s;
-      font-weight: bold;
-      font-size: 1.1em;
-    }
-    .topic-card:hover {
-      background: #007bff;
-      color: white;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-
-    /* --- COUNT SCREEN --- */
-    input[type="number"] {
+    /* --- SETUP SCREEN --- */
+    label { font-weight: bold; display: block; margin-top: 15px; }
+    select, input {
       width: 100%;
-      padding: 12px;
-      font-size: 16px;
+      padding: 10px;
+      margin-top: 5px;
       border: 1px solid #ccc;
       border-radius: 6px;
-      box-sizing: border-box;
-      margin-top: 10px;
-    }
-    .count-info {
-      background: #f8f9fa;
-      padding: 15px;
-      border-radius: 6px;
-      margin: 20px 0;
-      border-left: 4px solid #007bff;
+      box-sizing: border-box; /* Fixes padding issues */
     }
 
-    /* --- QUIZ UI --- */
-    #question-text { font-size: 1.25em; margin-bottom: 25px; line-height: 1.4; }
+    /* --- QUIZ SCREEN --- */
+    #question-text { font-size: 1.2em; margin-bottom: 20px; }
     .option-btn {
       background-color: #f8f9fa;
       color: #333;
-      border: 2px solid #e9ecef;
+      border: 1px solid #ddd;
       text-align: left;
-      margin-top: 10px;
-      padding: 15px;
-      font-weight: normal;
     }
-    .option-btn:hover { border-color: #007bff; background-color: #f1f8ff; }
-    .correct { background-color: #d4edda !important; border-color: #28a745 !important; color: #155724 !important; }
-    .wrong { background-color: #f8d7da !important; border-color: #dc3545 !important; color: #721c24 !important; }
+    .option-btn:hover { background-color: #e2e6ea; }
+    .correct { background-color: #d4edda !important; border-color: #c3e6cb !important; color: #155724 !important; }
+    .wrong { background-color: #f8d7da !important; border-color: #f5c6cb !important; color: #721c24 !important; }
     
     #explanation {
-      margin-top: 25px;
+      margin-top: 20px;
       padding: 15px;
       background: #e7f3fe;
       border-left: 5px solid #2196F3;
       border-radius: 4px;
     }
-    #next-btn { margin-top: 20px; }
 
-    /* --- RESULTS --- */
+    /* --- RESULTS SCREEN --- */
     .score-circle {
-      width: 140px;
-      height: 140px;
+      width: 120px;
+      height: 120px;
       background: #007bff;
       border-radius: 50%;
       color: white;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2.5em;
+      font-size: 2em;
       font-weight: bold;
-      margin: 20px auto;
-      box-shadow: 0 4px 10px rgba(0,123,255,0.3);
+      margin: 0 auto 20px auto;
+    }
+    .feedback-item {
+      background: #fff3cd;
+      padding: 10px;
+      margin-bottom: 8px;
+      border-left: 5px solid #ffc107;
     }
   </style>
 </head>
 <body>
 
-  <h1>🚑 Paramedic Prep</h1>
+  <h1>🚑 Paramedic NREMT Prep</h1>
 
   <div class="container">
     
-    <div id="topic-screen">
-      <h2 style="text-align: center;">Select a Module</h2>
-      <p style="text-align: center; color: #666;">Choose a specific topic or take the full exam.</p>
+    <div id="setup-screen">
+      <h2>Quiz Setup</h2>
       
-      <div id="topic-grid">
-        </div>
-    </div>
+      <label for="topic-select">Select Topic:</label>
+      <select id="topic-select">
+        <option value="All">All Topics (Simulated Exam)</option>
+        </select>
 
-    <div id="count-screen" class="hidden">
-      <h2 id="selected-topic-title">Topic Name</h2>
-      
-      <div class="count-info">
-        <strong>Available Questions:</strong> <span id="max-questions">0</span>
-      </div>
+      <label for="question-count">Number of Questions:</label>
+      <input type="number" id="question-count" value="10" min="1" max="100">
 
-      <label for="question-count"><strong>How many questions to take?</strong></label>
-      <input type="number" id="question-count" value="10" min="1">
-      
-      <div style="display: flex; gap: 10px; margin-top: 20px;">
-        <button class="btn btn-secondary" onclick="showScreen('topic')">Back</button>
-        <button class="btn" onclick="startQuiz()">Start Quiz</button>
-      </div>
+      <button class="btn" onclick="startQuiz()">Start Quiz</button>
     </div>
 
     <div id="quiz-screen" class="hidden">
-      <div style="display: flex; justify-content: space-between; margin-bottom: 20px; color: #666; font-size: 0.9em; text-transform: uppercase; letter-spacing: 1px;">
-        <span id="progress-text">Question 1/10</span>
-        <span id="topic-badge">Anatomy</span>
+      <div style="display: flex; justify-content: space-between; margin-bottom: 15px; color: #666;">
+        <span id="progress-text">Question 1 of 10</span>
+        <span id="topic-badge" style="font-weight: bold;">Anatomy</span>
       </div>
       
-      <div id="question-text">Question...</div>
+      <div id="question-text">Question goes here...</div>
       <div id="options-container"></div>
       
       <div id="explanation" class="hidden"></div>
+      
       <button id="next-btn" class="btn hidden" onclick="nextQuestion()">Next Question</button>
     </div>
 
     <div id="results-screen" class="hidden">
-      <h2 style="text-align: center;">Session Complete</h2>
+      <h2>Quiz Complete!</h2>
       <div class="score-circle" id="final-score">80%</div>
-      <p style="text-align: center; font-size: 1.2em;">You scored <span id="correct-count">0</span> / <span id="total-count">0</span></p>
+      <p style="text-align: center;">You got <span id="correct-count">8</span> out of <span id="total-count">10</span> correct.</p>
       
-      <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
-      
-      <h3>Study Recommendations:</h3>
+      <h3>Focus Areas:</h3>
+      <p>Based on your missed questions, you should review:</p>
       <div id="study-focus"></div>
 
-      <button class="btn btn-secondary" onclick="showScreen('topic')">Back to Main Menu</button>
+      <button class="btn" onclick="location.reload()">Take Another Quiz</button>
     </div>
 
   </div>
