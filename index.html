@@ -9,7 +9,7 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #f0f2f5;
       padding: 20px;
-      max-width: 600px;
+      max-width: 800px; /* Made slightly wider for the grid */
       margin: auto;
       color: #333;
     }
@@ -23,7 +23,7 @@
       padding: 30px;
       border-radius: 12px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      min-height: 300px; /* consistent height */
+      min-height: 400px;
     }
     
     /* --- UTILITIES --- */
@@ -33,7 +33,6 @@
       display: block;
       width: 100%;
       padding: 14px;
-      margin-top: 20px;
       font-size: 16px;
       font-weight: bold;
       cursor: pointer;
@@ -41,27 +40,58 @@
       color: white;
       border: none;
       border-radius: 6px;
-      transition: background 0.2s;
+      transition: background 0.2s, transform 0.1s;
     }
     .btn:hover { background-color: #0056b3; }
+    .btn:active { transform: scale(0.98); }
     .btn:disabled { background-color: #ccc; cursor: not-allowed; }
-    .btn-secondary { background-color: #6c757d; }
+    
+    .btn-secondary { background-color: #6c757d; margin-top: 20px;}
     .btn-secondary:hover { background-color: #545b62; }
 
-    /* --- FORMS --- */
-    label { font-weight: bold; display: block; margin-top: 15px; margin-bottom: 5px;}
-    select, input {
+    /* --- TOPIC GRID --- */
+    #topic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .topic-card {
+      background: #e7f1ff;
+      color: #0056b3;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.2s;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+    .topic-card:hover {
+      background: #007bff;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* --- COUNT SCREEN --- */
+    input[type="number"] {
       width: 100%;
       padding: 12px;
       font-size: 16px;
       border: 1px solid #ccc;
       border-radius: 6px;
-      box-sizing: border-box; 
+      box-sizing: border-box;
+      margin-top: 10px;
     }
-    .info-text {
-      color: #666;
-      font-size: 0.9em;
-      margin-top: 5px;
+    .count-info {
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 6px;
+      margin: 20px 0;
+      border-left: 4px solid #007bff;
     }
 
     /* --- QUIZ UI --- */
@@ -72,6 +102,7 @@
       border: 2px solid #e9ecef;
       text-align: left;
       margin-top: 10px;
+      padding: 15px;
       font-weight: normal;
     }
     .option-btn:hover { border-color: #007bff; background-color: #f1f8ff; }
@@ -85,6 +116,7 @@
       border-left: 5px solid #2196F3;
       border-radius: 4px;
     }
+    #next-btn { margin-top: 20px; }
 
     /* --- RESULTS --- */
     .score-circle {
@@ -110,30 +142,25 @@
   <div class="container">
     
     <div id="topic-screen">
-      <h2>Select a Module</h2>
-      <p class="info-text">Choose a subject to study.</p>
+      <h2 style="text-align: center;">Select a Module</h2>
+      <p style="text-align: center; color: #666;">Choose a specific topic or take the full exam.</p>
       
-      <label for="topic-select">Module:</label>
-      <select id="topic-select">
-        <option value="All">All Topics (Simulated Exam)</option>
-      </select>
-
-      <button class="btn" onclick="goToStep2()">Next</button>
+      <div id="topic-grid">
+        </div>
     </div>
 
     <div id="count-screen" class="hidden">
-      <h2><span id="selected-topic-display">Topic</span></h2>
+      <h2 id="selected-topic-title">Topic Name</h2>
       
-      <div style="background: #e9ecef; padding: 15px; border-radius: 6px; margin: 20px 0;">
+      <div class="count-info">
         <strong>Available Questions:</strong> <span id="max-questions">0</span>
       </div>
 
-      <label for="question-count">How many questions do you want?</label>
+      <label for="question-count"><strong>How many questions to take?</strong></label>
       <input type="number" id="question-count" value="10" min="1">
-      <p class="info-text">Enter a number between 1 and the max available.</p>
-
-      <div style="display: flex; gap: 10px;">
-        <button class="btn btn-secondary" onclick="goBackToTopics()">Back</button>
+      
+      <div style="display: flex; gap: 10px; margin-top: 20px;">
+        <button class="btn btn-secondary" onclick="showScreen('topic')">Back</button>
         <button class="btn" onclick="startQuiz()">Start Quiz</button>
       </div>
     </div>
@@ -161,7 +188,7 @@
       <h3>Study Recommendations:</h3>
       <div id="study-focus"></div>
 
-      <button class="btn" onclick="goBackToTopics()">Back to Main Menu</button>
+      <button class="btn btn-secondary" onclick="showScreen('topic')">Back to Main Menu</button>
     </div>
 
   </div>
