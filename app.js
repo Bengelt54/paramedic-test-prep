@@ -1,137 +1,79 @@
 // Global State
-let quizData = [];
+let quizData = [];         // The filtered list of questions for this session
 let currentQuestionIndex = 0;
 let score = 0;
-let missedTags = {}; 
-let currentSelectedTopic = ""; // Stores the topic selected in Step 1
+let missedTags = {};       // Tracks which tags the user missed (e.g., {"Cardiology": 2, "Trauma": 1})
 
 // DOM Elements
-const screens = {
-  topic: document.getElementById("topic-screen"),
-  count: document.getElementById("count-screen"),
-  quiz: document.getElementById("quiz-screen"),
-  results: document.getElementById("results-screen")
-};
-
-const countInput = document.getElementById("question-count");
-const topicGrid = document.getElementById("topic-grid");
+const setupScreen = document.getElementById("setup-screen");
+const quizScreen = document.getElementById("quiz-screen");
+const resultsScreen = document.getElementById("results-screen");
+const topicSelect = document.getElementById("topic-select");
 
 // --- INITIALIZATION ---
 window.onload = () => {
-  if (typeof QUESTIONS === 'undefined') {
-    alert("Error: Questions not loaded. Check your questions.js file.");
-    return;
-  }
-  
-  // 1. Get unique modules & Sort them
-  const uniqueModules = [...new Set(QUESTIONS.map(q => q.module))].sort();
-  
-  // 2. Clear Grid
-  topicGrid.innerHTML = "";
-
-  // 3. Add "Simulated Exam" (All Topics) button first
-  createTopicButton("Simulated Exam (All)", "All", true);
-
-  // 4. Add buttons for each module
-  uniqueModules.forEach(module => {
-    createTopicButton(module, module, false);
+  // Populate the Dropdown with unique modules from questions.js
+  const uniqueModules = [...new Set(QUESTIONS.map(q => q.module))];
+  uniqueModules.sort().forEach(module => {
+    const option = document.createElement("option");
+    option.value = module;
+    option.innerText = module;
+    topicSelect.appendChild(option);
   });
 };
 
-// Helper to create buttons
-function createTopicButton(displayText, value, isSpecial) {
-  const div = document.createElement("div");
-  div.classList.add("topic-card");
-  div.innerText = displayText;
-  
-  // Special styling for the "All" button if you want
-  if (isSpecial) {
-    div.style.background = "#0056b3";
-    div.style.color = "white";
-  }
-
-  div.onclick = () => selectTopic(value);
-  topicGrid.appendChild(div);
-}
-
-// --- NAVIGATION ---
-function showScreen(screenName) {
-  Object.values(screens).forEach(s => s.classList.add("hidden"));
-  screens[screenName].classList.remove("hidden");
-}
-
-// --- STEP 1 -> STEP 2 ---
-function selectTopic(topic) {
-  currentSelectedTopic = topic;
-  
-  // 1. Calculate available questions
-  let availableCount = 0;
-  if (topic === "All") {
-    availableCount = QUESTIONS.length;
-    document.getElementById("selected-topic-title").innerText = "Simulated Exam";
-  } else {
-    availableCount = QUESTIONS.filter(q => q.module === topic).length;
-    document.getElementById("selected-topic-title").innerText = topic;
-  }
-
-  // 2. Update UI limits
-  document.getElementById("max-questions").innerText = availableCount;
-  countInput.max = availableCount;
-  countInput.value = Math.min(10, availableCount); // Default to 10 or max available
-  
-  // 3. Move to next screen
-  showScreen("count");
-}
-
 // --- START QUIZ ---
 function startQuiz() {
-  const requestedCount = parseInt(countInput.value);
-  const maxAvailable = parseInt(countInput.max);
+  const selectedTopic = topicSelect.value;
+  const numQuestions = parseInt(document.getElementById("question-count").value);
 
-  if (requestedCount < 1 || requestedCount > maxAvailable) {
-    alert(`Please enter a number between 1 and ${maxAvailable}`);
-    return;
-  }
-
-  // 1. Filter Questions
+  // 1. Filter Questions based on topic
   let filtered = [];
-  if (currentSelectedTopic === "All") {
+  if (selectedTopic === "All") {
     filtered = [...QUESTIONS];
   } else {
-    filtered = QUESTIONS.filter(q => q.module === currentSelectedTopic);
+    filtered = QUESTIONS.filter(q => q.module === selectedTopic);
   }
 
-  // 2. Shuffle & Slice
+  // 2. Shuffle and Slice to get the requested number
   shuffle(filtered);
-  quizData = filtered.slice(0, requestedCount);
+  quizData = filtered.slice(0, numQuestions);
+
+  if (quizData.length === 0) {
+    alert("No questions found for this topic!");
+    return;
+  }
 
   // 3. Reset State
   currentQuestionIndex = 0;
   score = 0;
   missedTags = {};
 
-  // 4. Start
-  showScreen("quiz");
+  // 4. Switch Screens
+  setupScreen.classList.add("hidden");
+  quizScreen.classList.remove("hidden");
+  
   showQuestion();
 }
 
-// --- QUIZ LOGIC ---
+// --- DISPLAY QUESTION ---
 function showQuestion() {
   const q = quizData[currentQuestionIndex];
   
-  // UI Updates
-  document.getElementById("progress-text").innerText = `Question ${currentQuestionIndex + 1} / ${quizData.length}`;
+  // Update UI Text
+  document.getElementById("progress-text").innerText = `Question ${currentQuestionIndex + 1} of ${quizData.length}`;
   document.getElementById("topic-badge").innerText = q.module;
   document.getElementById("question-text").innerText = q.question;
 
-  // Reset Elements
+  // Reset Explanation & Next Button
   document.getElementById("explanation").classList.add("hidden");
   document.getElementById("next-btn").classList.add("hidden");
 
-  // Options
+  // Generate Answer Buttons
   const optionsContainer = document.getElementById("options-container");
   optionsContainer.innerHTML = "";
 
+  // Create an array of objects to shuffle answers but keep track of the original index
   let answers = q.options.map((text, originalIndex) => ({ text, originalIndex }));
   shuffle(answers);
 
@@ -144,6 +86,7 @@ function showQuestion() {
   });
 }
 
+// --- HANDLE ANSWER ---
 function handleAnswer(selectedBtn, selectedIndex, questionObj) {
   // Disable all buttons
   const allBtns = document.querySelectorAll(".option-btn");
@@ -156,13 +99,17 @@ function handleAnswer(selectedBtn, selectedIndex, questionObj) {
     score++;
   } else {
     selectedBtn.classList.add("wrong");
-    // Highlight correct
+    
+    // Highlight the correct answer
+    // We have to find the button with the text matching the correct option
     const correctText = questionObj.options[questionObj.correct];
     allBtns.forEach(btn => {
-      if (btn.innerText === correctText) btn.classList.add("correct");
+      if (btn.innerText === correctText) {
+        btn.classList.add("correct");
+      }
     });
-    
-    // Track miss
+
+    // Track missed tags for the results screen
     if (questionObj.tags) {
       questionObj.tags.forEach(tag => {
         missedTags[tag] = (missedTags[tag] || 0) + 1;
@@ -170,14 +117,16 @@ function handleAnswer(selectedBtn, selectedIndex, questionObj) {
     }
   }
 
-  // Explanation
+  // Show Explanation
   const expDiv = document.getElementById("explanation");
   expDiv.innerHTML = `<strong>Explanation:</strong> ${questionObj.explanation}`;
   expDiv.classList.remove("hidden");
   
+  // Show Next Button
   document.getElementById("next-btn").classList.remove("hidden");
 }
 
+// --- NEXT QUESTION ---
 function nextQuestion() {
   currentQuestionIndex++;
   if (currentQuestionIndex < quizData.length) {
@@ -187,41 +136,37 @@ function nextQuestion() {
   }
 }
 
-// --- RESULTS ---
+// --- SHOW RESULTS ---
 function showResults() {
-  showScreen("results");
+  quizScreen.classList.add("hidden");
+  resultsScreen.classList.remove("hidden");
 
+  // Calculate Score
   const percentage = Math.round((score / quizData.length) * 100);
   document.getElementById("final-score").innerText = `${percentage}%`;
   document.getElementById("correct-count").innerText = score;
   document.getElementById("total-count").innerText = quizData.length;
 
+  // Generate Study Advice
   const focusContainer = document.getElementById("study-focus");
   focusContainer.innerHTML = "";
 
   if (score === quizData.length) {
-    focusContainer.innerHTML = "<p style='text-align:center; color: green; font-weight: bold;'>🎉 Perfect score! Great job.</p>";
+    focusContainer.innerHTML = "<p>🎉 Perfect score! You are ready for this topic.</p>";
   } else {
+    // Sort missed tags by frequency
     const sortedTags = Object.entries(missedTags).sort((a, b) => b[1] - a[1]);
     
-    if (sortedTags.length === 0) {
-       focusContainer.innerHTML = "<p style='text-align:center;'>No specific topics tracked.</p>";
-    } else {
-      sortedTags.forEach(([tag, count]) => {
-        const div = document.createElement("div");
-        div.style.padding = "10px";
-        div.style.background = "#fff3cd";
-        div.style.marginBottom = "8px";
-        div.style.borderRadius = "4px";
-        div.style.borderLeft = "5px solid #ffc107";
-        div.innerText = `Review: ${tag} (${count} missed)`;
-        focusContainer.appendChild(div);
-      });
-    }
+    sortedTags.forEach(([tag, count]) => {
+      const div = document.createElement("div");
+      div.classList.add("feedback-item");
+      div.innerText = `Review: ${tag} (${count} missed)`;
+      focusContainer.appendChild(div);
+    });
   }
 }
 
-// Utility
+// --- UTILITY: SHUFFLE ARRAY ---
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
