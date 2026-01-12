@@ -3,6 +3,7 @@ let quizData = [];
 let currentQuestionIndex = 0;
 let score = 0;
 let missedTags = {}; 
+let currentSelectedTopic = ""; // Stores the topic selected in Step 1
 
 // DOM Elements
 const screens = {
@@ -12,69 +13,81 @@ const screens = {
   results: document.getElementById("results-screen")
 };
 
-const topicSelect = document.getElementById("topic-select");
 const countInput = document.getElementById("question-count");
+const topicGrid = document.getElementById("topic-grid");
 
 // --- INITIALIZATION ---
 window.onload = () => {
-  // 1. Get unique modules
   if (typeof QUESTIONS === 'undefined') {
     alert("Error: Questions not loaded. Check your questions.js file.");
     return;
   }
+  
+  // 1. Get unique modules & Sort them
   const uniqueModules = [...new Set(QUESTIONS.map(q => q.module))].sort();
   
-  // 2. Populate Dropdown
+  // 2. Clear Grid
+  topicGrid.innerHTML = "";
+
+  // 3. Add "Simulated Exam" (All Topics) button first
+  createTopicButton("Simulated Exam (All)", "All", true);
+
+  // 4. Add buttons for each module
   uniqueModules.forEach(module => {
-    const option = document.createElement("option");
-    option.value = module;
-    option.innerText = module;
-    topicSelect.appendChild(option);
+    createTopicButton(module, module, false);
   });
 };
 
+// Helper to create buttons
+function createTopicButton(displayText, value, isSpecial) {
+  const div = document.createElement("div");
+  div.classList.add("topic-card");
+  div.innerText = displayText;
+  
+  // Special styling for the "All" button if you want
+  if (isSpecial) {
+    div.style.background = "#0056b3";
+    div.style.color = "white";
+  }
+
+  div.onclick = () => selectTopic(value);
+  topicGrid.appendChild(div);
+}
+
 // --- NAVIGATION ---
 function showScreen(screenName) {
-  // Hide all screens
   Object.values(screens).forEach(s => s.classList.add("hidden"));
-  // Show target
   screens[screenName].classList.remove("hidden");
 }
 
-function goBackToTopics() {
-  showScreen("topic");
-}
-
 // --- STEP 1 -> STEP 2 ---
-function goToStep2() {
-  const selectedTopic = topicSelect.value;
+function selectTopic(topic) {
+  currentSelectedTopic = topic;
   
-  // 1. Calculate how many questions exist for this topic
+  // 1. Calculate available questions
   let availableCount = 0;
-  if (selectedTopic === "All") {
+  if (topic === "All") {
     availableCount = QUESTIONS.length;
+    document.getElementById("selected-topic-title").innerText = "Simulated Exam";
   } else {
-    availableCount = QUESTIONS.filter(q => q.module === selectedTopic).length;
+    availableCount = QUESTIONS.filter(q => q.module === topic).length;
+    document.getElementById("selected-topic-title").innerText = topic;
   }
 
-  // 2. Update UI
-  document.getElementById("selected-topic-display").innerText = selectedTopic;
+  // 2. Update UI limits
   document.getElementById("max-questions").innerText = availableCount;
-  
-  // 3. Set Input Constraints
   countInput.max = availableCount;
-  countInput.value = Math.min(10, availableCount); // Default to 10 or max if lower
+  countInput.value = Math.min(10, availableCount); // Default to 10 or max available
   
+  // 3. Move to next screen
   showScreen("count");
 }
 
 // --- START QUIZ ---
 function startQuiz() {
-  const selectedTopic = topicSelect.value;
   const requestedCount = parseInt(countInput.value);
   const maxAvailable = parseInt(countInput.max);
 
-  // Validation
   if (requestedCount < 1 || requestedCount > maxAvailable) {
     alert(`Please enter a number between 1 and ${maxAvailable}`);
     return;
@@ -82,10 +95,10 @@ function startQuiz() {
 
   // 1. Filter Questions
   let filtered = [];
-  if (selectedTopic === "All") {
+  if (currentSelectedTopic === "All") {
     filtered = [...QUESTIONS];
   } else {
-    filtered = QUESTIONS.filter(q => q.module === selectedTopic);
+    filtered = QUESTIONS.filter(q => q.module === currentSelectedTopic);
   }
 
   // 2. Shuffle & Slice
@@ -148,6 +161,7 @@ function handleAnswer(selectedBtn, selectedIndex, questionObj) {
     allBtns.forEach(btn => {
       if (btn.innerText === correctText) btn.classList.add("correct");
     });
+    
     // Track miss
     if (questionObj.tags) {
       questionObj.tags.forEach(tag => {
@@ -186,11 +200,12 @@ function showResults() {
   focusContainer.innerHTML = "";
 
   if (score === quizData.length) {
-    focusContainer.innerHTML = "<p style='text-align:center; color: green;'>🎉 Perfect score! Great job.</p>";
+    focusContainer.innerHTML = "<p style='text-align:center; color: green; font-weight: bold;'>🎉 Perfect score! Great job.</p>";
   } else {
     const sortedTags = Object.entries(missedTags).sort((a, b) => b[1] - a[1]);
+    
     if (sortedTags.length === 0) {
-       focusContainer.innerHTML = "<p>No specific tags tracked.</p>";
+       focusContainer.innerHTML = "<p style='text-align:center;'>No specific topics tracked.</p>";
     } else {
       sortedTags.forEach(([tag, count]) => {
         const div = document.createElement("div");
@@ -198,6 +213,7 @@ function showResults() {
         div.style.background = "#fff3cd";
         div.style.marginBottom = "8px";
         div.style.borderRadius = "4px";
+        div.style.borderLeft = "5px solid #ffc107";
         div.innerText = `Review: ${tag} (${count} missed)`;
         focusContainer.appendChild(div);
       });
