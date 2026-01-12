@@ -1,20 +1,31 @@
 // Global State
-let quizData = [];         // The filtered list of questions for this session
+let quizData = [];
 let currentQuestionIndex = 0;
 let score = 0;
-let missedTags = {};       // Tracks which tags the user missed (e.g., {"Cardiology": 2, "Trauma": 1})
+let missedTags = {}; 
 
 // DOM Elements
-const setupScreen = document.getElementById("setup-screen");
-const quizScreen = document.getElementById("quiz-screen");
-const resultsScreen = document.getElementById("results-screen");
+const screens = {
+  topic: document.getElementById("topic-screen"),
+  count: document.getElementById("count-screen"),
+  quiz: document.getElementById("quiz-screen"),
+  results: document.getElementById("results-screen")
+};
+
 const topicSelect = document.getElementById("topic-select");
+const countInput = document.getElementById("question-count");
 
 // --- INITIALIZATION ---
 window.onload = () => {
-  // Populate the Dropdown with unique modules from questions.js
-  const uniqueModules = [...new Set(QUESTIONS.map(q => q.module))];
-  uniqueModules.sort().forEach(module => {
+  // 1. Get unique modules
+  if (typeof QUESTIONS === 'undefined') {
+    alert("Error: Questions not loaded. Check your questions.js file.");
+    return;
+  }
+  const uniqueModules = [...new Set(QUESTIONS.map(q => q.module))].sort();
+  
+  // 2. Populate Dropdown
+  uniqueModules.forEach(module => {
     const option = document.createElement("option");
     option.value = module;
     option.innerText = module;
@@ -22,12 +33,54 @@ window.onload = () => {
   });
 };
 
+// --- NAVIGATION ---
+function showScreen(screenName) {
+  // Hide all screens
+  Object.values(screens).forEach(s => s.classList.add("hidden"));
+  // Show target
+  screens[screenName].classList.remove("hidden");
+}
+
+function goBackToTopics() {
+  showScreen("topic");
+}
+
+// --- STEP 1 -> STEP 2 ---
+function goToStep2() {
+  const selectedTopic = topicSelect.value;
+  
+  // 1. Calculate how many questions exist for this topic
+  let availableCount = 0;
+  if (selectedTopic === "All") {
+    availableCount = QUESTIONS.length;
+  } else {
+    availableCount = QUESTIONS.filter(q => q.module === selectedTopic).length;
+  }
+
+  // 2. Update UI
+  document.getElementById("selected-topic-display").innerText = selectedTopic;
+  document.getElementById("max-questions").innerText = availableCount;
+  
+  // 3. Set Input Constraints
+  countInput.max = availableCount;
+  countInput.value = Math.min(10, availableCount); // Default to 10 or max if lower
+  
+  showScreen("count");
+}
+
 // --- START QUIZ ---
 function startQuiz() {
   const selectedTopic = topicSelect.value;
-  const numQuestions = parseInt(document.getElementById("question-count").value);
+  const requestedCount = parseInt(countInput.value);
+  const maxAvailable = parseInt(countInput.max);
 
-  // 1. Filter Questions based on topic
+  // Validation
+  if (requestedCount < 1 || requestedCount > maxAvailable) {
+    alert(`Please enter a number between 1 and ${maxAvailable}`);
+    return;
+  }
+
+  // 1. Filter Questions
   let filtered = [];
   if (selectedTopic === "All") {
     filtered = [...QUESTIONS];
@@ -35,45 +88,37 @@ function startQuiz() {
     filtered = QUESTIONS.filter(q => q.module === selectedTopic);
   }
 
-  // 2. Shuffle and Slice to get the requested number
+  // 2. Shuffle & Slice
   shuffle(filtered);
-  quizData = filtered.slice(0, numQuestions);
-
-  if (quizData.length === 0) {
-    alert("No questions found for this topic!");
-    return;
-  }
+  quizData = filtered.slice(0, requestedCount);
 
   // 3. Reset State
   currentQuestionIndex = 0;
   score = 0;
   missedTags = {};
 
-  // 4. Switch Screens
-  setupScreen.classList.add("hidden");
-  quizScreen.classList.remove("hidden");
-  
+  // 4. Start
+  showScreen("quiz");
   showQuestion();
 }
 
-// --- DISPLAY QUESTION ---
+// --- QUIZ LOGIC ---
 function showQuestion() {
   const q = quizData[currentQuestionIndex];
   
-  // Update UI Text
-  document.getElementById("progress-text").innerText = `Question ${currentQuestionIndex + 1} of ${quizData.length}`;
+  // UI Updates
+  document.getElementById("progress-text").innerText = `Question ${currentQuestionIndex + 1} / ${quizData.length}`;
   document.getElementById("topic-badge").innerText = q.module;
   document.getElementById("question-text").innerText = q.question;
 
-  // Reset Explanation & Next Button
+  // Reset Elements
   document.getElementById("explanation").classList.add("hidden");
   document.getElementById("next-btn").classList.add("hidden");
 
-  // Generate Answer Buttons
+  // Options
   const optionsContainer = document.getElementById("options-container");
   optionsContainer.innerHTML = "";
 
-  // Create an array of objects to shuffle answers but keep track of the original index
   let answers = q.options.map((text, originalIndex) => ({ text, originalIndex }));
   shuffle(answers);
 
@@ -86,7 +131,6 @@ function showQuestion() {
   });
 }
 
-// --- HANDLE ANSWER ---
 function handleAnswer(selectedBtn, selectedIndex, questionObj) {
   // Disable all buttons
   const allBtns = document.querySelectorAll(".option-btn");
@@ -99,17 +143,12 @@ function handleAnswer(selectedBtn, selectedIndex, questionObj) {
     score++;
   } else {
     selectedBtn.classList.add("wrong");
-    
-    // Highlight the correct answer
-    // We have to find the button with the text matching the correct option
+    // Highlight correct
     const correctText = questionObj.options[questionObj.correct];
     allBtns.forEach(btn => {
-      if (btn.innerText === correctText) {
-        btn.classList.add("correct");
-      }
+      if (btn.innerText === correctText) btn.classList.add("correct");
     });
-
-    // Track missed tags for the results screen
+    // Track miss
     if (questionObj.tags) {
       questionObj.tags.forEach(tag => {
         missedTags[tag] = (missedTags[tag] || 0) + 1;
@@ -117,16 +156,14 @@ function handleAnswer(selectedBtn, selectedIndex, questionObj) {
     }
   }
 
-  // Show Explanation
+  // Explanation
   const expDiv = document.getElementById("explanation");
   expDiv.innerHTML = `<strong>Explanation:</strong> ${questionObj.explanation}`;
   expDiv.classList.remove("hidden");
   
-  // Show Next Button
   document.getElementById("next-btn").classList.remove("hidden");
 }
 
-// --- NEXT QUESTION ---
 function nextQuestion() {
   currentQuestionIndex++;
   if (currentQuestionIndex < quizData.length) {
@@ -136,37 +173,39 @@ function nextQuestion() {
   }
 }
 
-// --- SHOW RESULTS ---
+// --- RESULTS ---
 function showResults() {
-  quizScreen.classList.add("hidden");
-  resultsScreen.classList.remove("hidden");
+  showScreen("results");
 
-  // Calculate Score
   const percentage = Math.round((score / quizData.length) * 100);
   document.getElementById("final-score").innerText = `${percentage}%`;
   document.getElementById("correct-count").innerText = score;
   document.getElementById("total-count").innerText = quizData.length;
 
-  // Generate Study Advice
   const focusContainer = document.getElementById("study-focus");
   focusContainer.innerHTML = "";
 
   if (score === quizData.length) {
-    focusContainer.innerHTML = "<p>🎉 Perfect score! You are ready for this topic.</p>";
+    focusContainer.innerHTML = "<p style='text-align:center; color: green;'>🎉 Perfect score! Great job.</p>";
   } else {
-    // Sort missed tags by frequency
     const sortedTags = Object.entries(missedTags).sort((a, b) => b[1] - a[1]);
-    
-    sortedTags.forEach(([tag, count]) => {
-      const div = document.createElement("div");
-      div.classList.add("feedback-item");
-      div.innerText = `Review: ${tag} (${count} missed)`;
-      focusContainer.appendChild(div);
-    });
+    if (sortedTags.length === 0) {
+       focusContainer.innerHTML = "<p>No specific tags tracked.</p>";
+    } else {
+      sortedTags.forEach(([tag, count]) => {
+        const div = document.createElement("div");
+        div.style.padding = "10px";
+        div.style.background = "#fff3cd";
+        div.style.marginBottom = "8px";
+        div.style.borderRadius = "4px";
+        div.innerText = `Review: ${tag} (${count} missed)`;
+        focusContainer.appendChild(div);
+      });
+    }
   }
 }
 
-// --- UTILITY: SHUFFLE ARRAY ---
+// Utility
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
