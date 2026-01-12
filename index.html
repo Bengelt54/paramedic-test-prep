@@ -104,10 +104,17 @@
     <div id="setup-screen">
       <h2>Quiz Setup</h2>
       
-      <label for="topic-select">Select Topic:</label>
-      <select id="topic-select">
-        <option value="All">All Topics (Simulated Exam)</option>
-        </select>
+      <h2>Select a Topic</h2>
+
+<div id="topic-buttons"></div>
+
+<div id="question-count-container" class="hidden">
+  <label for="question-count">Number of Questions:</label>
+  <input type="number" id="question-count" value="10" min="1" max="100">
+
+  <button class="btn" onclick="startQuiz()">Start Quiz</button>
+</div>
+
 
       <label for="question-count">Number of Questions:</label>
       <input type="number" id="question-count" value="10" min="1" max="100">
