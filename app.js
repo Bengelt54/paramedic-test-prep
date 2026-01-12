@@ -3,6 +3,7 @@ let quizData = [];         // The filtered list of questions for this session
 let currentQuestionIndex = 0;
 let score = 0;
 let missedTags = {};       // Tracks which tags the user missed (e.g., {"Cardiology": 2, "Trauma": 1})
+let selectedTopic = null;
 
 // DOM Elements
 const setupScreen = document.getElementById("setup-screen");
@@ -12,19 +13,32 @@ const topicSelect = document.getElementById("topic-select");
 
 // --- INITIALIZATION ---
 window.onload = () => {
-  // Populate the Dropdown with unique modules from questions.js
+  const topicButtonsDiv = document.getElementById("topic-buttons");
+
   const uniqueModules = [...new Set(QUESTIONS.map(q => q.module))];
-  uniqueModules.sort().forEach(module => {
-    const option = document.createElement("option");
-    option.value = module;
-    option.innerText = module;
-    topicSelect.appendChild(option);
+  uniqueModules.sort();
+
+  // Add "All Topics" option
+  uniqueModules.unshift("All");
+
+  uniqueModules.forEach(module => {
+    const btn = document.createElement("button");
+    btn.classList.add("btn");
+    btn.innerText = module === "All" ? "All Topics (Simulated Exam)" : module;
+
+    btn.onclick = () => {
+      selectedTopic = module;
+      document.getElementById("question-count-container").classList.remove("hidden");
+    };
+
+    topicButtonsDiv.appendChild(btn);
   });
 };
 
+
 // --- START QUIZ ---
 function startQuiz() {
-  const selectedTopic = topicSelect.value;
+  //const selectedTopic = topicSelect.value;
   const numQuestions = parseInt(document.getElementById("question-count").value);
 
   // 1. Filter Questions based on topic
@@ -173,3 +187,4 @@ function shuffle(array) {
     [array[i], array[j]] = [array[j], array[i]];
   }
 }
+
