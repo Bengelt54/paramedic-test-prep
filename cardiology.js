@@ -433,5 +433,585 @@ const CARDIOLOGY_QUESTIONS = [
     options: ["10-15%", "20-25%", "30-40%", "50%"],
     correct: 1,
     explanation: "Atrial kick (atrial contraction) contributes 20-25% to cardiac output."
+  },
+  {
+    module: "Cardiology",
+    tags: ["ACLS", "Pharmacology"],
+    question: "Epinephrine should be repeated at what frequency for the treatment of Asystole?",
+    options: ["1-2 minutes", "3-5 minutes", "5-10 minutes", "Once only"],
+    correct: 1,
+    explanation: "Per ACLS guidelines, Epinephrine 1mg (1:10,000) should be administered every 3-5 minutes during cardiac arrest."
+  },
+  {
+    module: "Cardiology",
+    tags: ["ACLS", "Assessment"],
+    question: "You are doing CPR on a patient with PEA. You see electrical rhythm on the monitor. What should you do?",
+    options: ["Defibrillate immediately", "Check for a pulse", "Administer Adenosine", "Stop CPR and monitor"],
+    correct: 1,
+    explanation: "If an organized electrical rhythm appears on the monitor during a pulse check, you must immediately check for a carotid pulse to determine if the patient has achieved ROSC."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Pharmacology", "Pathology"],
+    question: "Aspirin (ASA) treats an MI by...",
+    options: ["Dissolving the existing clot", "Preventing further platelet aggregation", "Dilating the coronary arteries", "Decreasing the heart rate"],
+    correct: 1,
+    explanation: "Aspirin is an antiplatelet agent; it prevents platelets from sticking together (aggregation) and making the current clot larger."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Pharmacology"],
+    question: "In small doses, nitroglycerin acts to reduce chest pain due to myocardial ischemia by:",
+    options: ["Decreasing heart rate", "Decreasing preload via venodilation", "Increasing systemic vascular resistance", "Inhibiting pain receptors"],
+    correct: 1,
+    explanation: "Nitroglycerin is primarily a venodilator at lower doses, which reduces the amount of blood returning to the heart (preload), thereby reducing myocardial oxygen demand."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Pathology", "Assessment"],
+    question: "Which symptom is most commonly associated with left-sided heart failure?",
+    options: ["Jugular Vein Distention (JVD)", "Peripheral edema", "Pulmonary edema/Crackles", "Hepatic engorgement"],
+    correct: 2,
+    explanation: "Left-sided heart failure causes blood to back up into the lungs, leading to pulmonary edema and crackles (rales)."
+  },
+  {
+    module: "Cardiology",
+    tags: ["ECG"],
+    question: "Which of the following is NOT a characteristic of V-Tach?",
+    options: ["Rate usually >100 bpm", "Wide QRS complexes", "Regular rhythm", "Frequent P waves"],
+    correct: 3,
+    explanation: "Ventricular Tachycardia originates in the ventricles; therefore, P waves are typically absent, buried, or dissociated from the QRS."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Pathology", "Vitals"],
+    question: "Which of the following vital sign patterns is most commonly observed in patients with right-sided heart failure?",
+    options: ["Hypotension and clear lung sounds", "Hypertension and crackles", "Bradycardia and JVD", "Narrow pulse pressure and wheezing"],
+    correct: 0,
+    explanation: "Right-sided heart failure presents with clear lung sounds (the problem is 'after' the lungs) and can lead to hypotension if preload to the left ventricle is severely reduced."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Pathology"],
+    question: "An aortic aneurysm occurs when:",
+    options: ["A valve fails to close", "The wall of the aorta weakens and bulges", "The aorta becomes completely blocked", "The heart muscle thickens"],
+    correct: 1,
+    explanation: "An aneurysm is a localized dilation or 'ballooning' of a blood vessel caused by a weakened area in the vessel wall."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Pathology", "Assessment"],
+    question: "Which is NOT a diagnostic sign for pericarditis?",
+    options: ["Diffuse ST elevation", "Pericardial friction rub", "Chest pain relieved by leaning forward", "JVD and muffled heart tones"],
+    correct: 3,
+    explanation: "JVD and muffled heart tones are part of Beck's Triad, which indicates cardiac tamponade (a potential complication of pericarditis, but not the same thing)."
+  },
+  {
+    module: "Cardiology",
+    tags: ["ECG"],
+    question: "Second-degree AV block type 1 (Wenckebach) is characterized by:",
+    options: ["Constant PR interval", "Progressive PR lengthening until a QRS is dropped", "More QRS complexes than P waves", "Randomly dropped QRS complexes"],
+    correct: 1,
+    explanation: "Wenckebach involves a progressive lengthening of the PR interval until a QRS complex is dropped."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Pathology", "Risk Factors"],
+    question: "Which is NOT a common cause of arteriosclerosis?",
+    options: ["Hypertension", "Diabetes Mellitus", "High levels of HDL cholesterol", "Smoking"],
+    correct: 2,
+    explanation: "HDL (High-Density Lipoprotein) is often called 'good' cholesterol because it helps remove other forms of cholesterol from the bloodstream. Low HDL or high LDL (Low-Density Lipoprotein) are risks for arteriosclerosis."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Pathology", "Assessment"],
+    question: "Pitting edema in lower extremities, jugular venous distention, ascites, and hepatomegaly are related to which condition?",
+    options: ["Left-sided heart failure", "Right-sided heart failure", "Pulmonary Embolism", "Pneumonia"],
+    correct: 1,
+    explanation: "Right-sided heart failure causes blood to back up into the systemic circulation, leading to JVD, peripheral edema, and organ engorgement (hepatomegaly/ascites)."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Pathology", "Respiratory"],
+    question: "Cardiac asthma is a condition in which a patient:",
+    options: [
+      "Develops wheezing due to bronchospasm from an allergic reaction",
+      "Develops wheezing due to pulmonary congestion from left-sided heart failure",
+      "Has a history of asthma that triggers a myocardial infarction",
+      "Experiences shortness of breath only during exercise"
+    ],
+    correct: 1,
+    explanation: "Cardiac asthma is not true asthma; it is wheezing caused by fluid backing up into the lungs (pulmonary edema) from a failing left ventricle."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Pathology", "Genetics"],
+    question: "Which of the following would be most likely to predispose a patient to develop an abdominal aortic aneurysm, and is described as a disorder of the connective tissue characterized by tall stature and aortic and mitral valve insufficiency?",
+    options: ["Down Syndrome", "Marfan Syndrome", "Cushing's Syndrome", "Addison's Disease"],
+    correct: 1,
+    explanation: "Marfan Syndrome is a genetic connective tissue disorder that weakens the walls of major blood vessels, making patients highly susceptible to aortic aneurysms and dissections."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Physiology"],
+    question: "The Frank-Starling law of the heart states that:",
+    options: [
+      "The heart rate increases as blood pressure decreases",
+      "The force of ventricular contraction is proportional to the initial length of the muscle fibers",
+      "The heart will always pump exactly 5 liters of blood per minute",
+      "Electrical impulses must start at the SA node to be effective"
+    ],
+    correct: 1,
+    explanation: "The Frank-Starling law states that the more the myocardial fibers are stretched (preload), the more forcefully they will contract (increased stroke volume)."
+  },
+  {
+    module: "Cardiology",
+    tags: ["ACLS", "Operations"],
+    question: "In the management of pulseless electrical activity (PEA), the initial treatment involves:",
+    options: [
+      "Immediate defibrillation at 200J",
+      "High-quality CPR and administration of Epinephrine",
+      "Synchronized cardioversion",
+      "Administration of Amiodarone 300mg"
+    ],
+    correct: 1,
+    explanation: "PEA is a non-shockable rhythm. Treatment focuses on high-quality CPR, vasopressors (Epinephrine), and identifying/treating reversible causes (H's and T's)."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Pathology", "Risk Factors"],
+    question: "All of the following predispose patients to having an aneurysm except:",
+    options: ["Atherosclerosis", "Hypertension", "Hypotension", "Trauma"],
+    correct: 2,
+    explanation: "Aneurysms are caused by factors that weaken the vessel wall (atherosclerosis/trauma) or increase the pressure against it (hypertension). Hypotension does not cause the wall to bulge."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Pathology", "Assessment"],
+    question: "Claudication, a symptom of peripheral artery disease, is characterized by pain in the legs that occurs with exercise and is relieved by rest. To differentiate claudication from musculoskeletal pain, it is important to assess whether the pain:",
+    options: [
+      "Is sharp or dull",
+      "Is consistent and reproducible with the same level of exertion",
+      "Radiates to the lower back",
+      "Is relieved by changing position"
+    ],
+    correct: 1,
+    explanation: "Arterial claudication is highly predictable; it occurs after the same amount of exercise and disappears quickly with rest, unlike most musculoskeletal injuries."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Pathology"],
+    question: "Which of the following best describes the impact of Coronary Artery Disease (CAD) on heart function?",
+    options: [
+      "It improves blood flow by hardening the vessels",
+      "It narrows the coronary arteries, reducing oxygen delivery to the myocardium",
+      "It causes the heart to grow new, more efficient valves",
+      "It primarily affects the electrical system, not the blood supply"
+    ],
+    correct: 1,
+    explanation: "CAD involves the buildup of plaque in the coronary arteries, which restricts blood flow and can lead to ischemia (angina) or infarction (MI)."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Pathology", "Physiology"],
+    question: "What physiological change occurs in the heart as a result of Cor Pulmonale?",
+    options: [
+      "Left ventricular hypertrophy",
+      "Right ventricular hypertrophy and failure",
+      "Dilation of the mitral valve",
+      "Thinning of the atrial walls"
+    ],
+    correct: 1,
+    explanation: "Cor Pulmonale is right ventricular hypertrophy and eventual failure caused by high pressure in the pulmonary arteries, often due to chronic lung disease."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Physiology", "Heart Failure"],
+    question: "There are 4 major changes to a patient's cardiovascular system that will decrease cardiac output and lead to heart failure. Which of the following is NOT one of those changes?",
+    options: [
+      "Increased afterload",
+      "Increased preload",
+      "Decreased contractility",
+      "Increased heart rate"
+    ],
+    correct: 3,
+    explanation: "Heart failure is generally driven by impaired contractility, excessive preload (volume), or high afterload (resistance). While tachycardia often occurs as a compensation, it is not a primary cause of the failure itself."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Pathology", "Genetics"],
+    question: "Which of the following statements accurately describes the relationship between Marfan Syndrome and cardiovascular complications?",
+    options: [
+      "It causes hardening of the coronary arteries",
+      "It results in connective tissue weakness, predisposing patients to aortic aneurysms",
+      "It primarily leads to electrical conduction blocks",
+      "It is the leading cause of pediatric myocardial infarction"
+    ],
+    correct: 1,
+    explanation: "Marfan Syndrome is a connective tissue disorder that weakens the aortic wall, significantly increasing the risk of aortic dissection and aneurysms."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Pharmacology"],
+    question: "What is the primary mechanism of action of calcium channel blockers in the treatment of cardiovascular conditions?",
+    options: [
+      "Increasing sodium influx to speed up the heart rate",
+      "Inhibiting calcium ion influx to decrease contractility and cause vasodilation",
+      "Blocking beta receptors to prevent adrenaline from binding",
+      "Stimulating the Vagus nerve to slow conduction"
+    ],
+    correct: 1,
+    explanation: "Calcium channel blockers inhibit the movement of calcium into cardiac and smooth muscle cells, leading to decreased heart rate, reduced contractility, and vasodilation."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Physiology", "ECG"],
+    question: "What physiological event marks the onset of the relative refractory period in cardiac action potentials?",
+    options: [
+      "The beginning of the P wave",
+      "The peak of the T wave",
+      "The down-slope of the T wave",
+      "The beginning of the QRS complex"
+    ],
+    correct: 2,
+    explanation: "The relative refractory period occurs during the down-slope of the T wave, where a strong enough stimulus can trigger a premature and potentially dangerous contraction (R on T phenomenon)."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Pathology", "Risk Factors"],
+    question: "Which of the following is NOT a leading cause of arteriosclerosis?",
+    options: [
+      "Hypertension",
+      "Smoking",
+      "High HDL levels",
+      "Diabetes Mellitus"
+    ],
+    correct: 2,
+    explanation: "High levels of HDL (High-Density Lipoprotein) are considered protective against arteriosclerosis; low HDL or high LDL are the actual risk factors."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Pathology", "Assessment"],
+    question: "Which of the following is NOT a typical symptom of an MI?",
+    options: [
+      "Diaphoresis",
+      "Nausea and vomiting",
+      "Sharp pain that increases with inspiration",
+      "Radiating pain to the jaw or left arm"
+    ],
+    correct: 2,
+    explanation: "Pain that changes with inspiration (pleuritic pain) is more common in pericarditis or pulmonary issues; MI pain is typically constant, crushing pressure."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Physiology"],
+    question: "Starling's Law of the Heart relates:",
+    options: [
+      "Heart rate to blood pressure",
+      "Stroke volume to the end-diastolic volume (stretch)",
+      "Oxygen consumption to respiratory rate",
+      "Electrical conductivity to electrolyte levels"
+    ],
+    correct: 1,
+    explanation: "Starling's Law states that the force of ventricular contraction is determined by the degree to which the muscle fibers are stretched by incoming blood (preload)."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Pharmacology", "Physiology"],
+    question: "A patient has been administered epinephrine. Subsequent stimulation of beta1-adrenergic receptors in the heart results in:",
+    options: [
+      "Bronchodilation and vasodilation",
+      "Increased heart rate and contractility",
+      "Vasoconstriction and increased blood pressure",
+      "Decreased conduction through the AV node"
+    ],
+    correct: 1,
+    explanation: "Beta-1 receptors are primarily located in the heart; their stimulation increases heart rate (chronotropy), contractility (inotropy), and conduction speed (dromotropy)."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Pathology", "Assessment"],
+    question: "Which of the following is NOT a common sign or symptom of left-sided heart failure?",
+    options: [
+      "Dyspnea on exertion",
+      "Pulmonary crackles (rales)",
+      "Jugular Vein Distention (JVD)",
+      "Orthopnea"
+    ],
+    correct: 2,
+    explanation: "JVD is a classic sign of right-sided heart failure; left-sided failure primarily manifests as respiratory symptoms due to fluid backing up into the lungs."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Pathology", "Assessment"],
+    question: "Which of the following symptoms is commonly associated with an abdominal aortic aneurysm (AAA)?",
+    options: [
+      "Crushing retrosternal chest pain",
+      "Pulsatile mass in the abdomen and tearing back pain",
+      "Productive cough with pink frothy sputum",
+      "Yellow vision and bradycardia"
+    ],
+    correct: 1,
+    explanation: "AAA often presents with a pulsating mass near the umbilicus and deep, tearing pain in the back or abdomen."
+  }, 
+  {
+    module: "Cardiology",
+    tags: ["Pathology", "Assessment"],
+    question: "Which of the following best describes an aortic aneurysm and its associated symptoms?",
+    options: [
+      "A narrowing of the aorta causing high blood pressure in the arms",
+      "A localized dilation of the arterial wall that is often asymptomatic until it expands or ruptures",
+      "A complete blockage of the aorta causing immediate lower limb paralysis",
+      "An inflammation of the aortic valve causing a loud murmur"
+    ],
+    correct: 1,
+    explanation: "An aortic aneurysm is a weakened, bulging area in the wall of the aorta; it often remains silent until it grows large enough to cause pain or ruptures."
+  },
+  {
+    module: "Cardiology",
+    tags: ["ECG"],
+    question: "Idioventricular Rhythm can be described as all of the following EXCEPT:",
+    options: [
+      "Rate of 20-40 beats per minute",
+      "Wide and bizarre QRS complexes",
+      "Regularity in the rhythm",
+      "Presence of upright P waves before every QRS"
+    ],
+    correct: 3,
+    explanation: "Idioventricular rhythm originates in the ventricles, so P waves are absent because the SA and AV nodes are not controlling the heart rate."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Pathology", "Risk Factors"],
+    question: "What is the most common cause of atherosclerosis?",
+    options: [
+      "Chronic low blood pressure",
+      "High intake of vitamin C",
+      "Injury to the endothelial lining often caused by hypertension and high cholesterol",
+      "Genetic absence of cardiac valves"
+    ],
+    correct: 2,
+    explanation: "Atherosclerosis typically begins with damage to the inner layer of an artery (endothelium), leading to the accumulation of plaque over time."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Pathology", "Diagnostics"],
+    question: "A patient presents to the emergency room reporting severe back pain and shortness of breath. A CT scan would most likely reveal an aneurysm in the:",
+    options: [
+      "Abdominal aorta",
+      "Thoracic aorta",
+      "Carotid artery",
+      "Femoral artery"
+    ],
+    correct: 1,
+    explanation: "A thoracic aortic aneurysm is more likely to cause chest or back pain and shortness of breath due to its proximity to the lungs and chest wall."
+  },
+  {
+    module: "Cardiology",
+    tags: ["ACLS", "ECG"],
+    question: "Which dysrhythmia is frequently observed following successful re-perfusion therapy in patients with myocardial infarction?",
+    options: [
+      "Accelerated Idioventricular Rhythm (AIVR)",
+      "Supraventricular Tachycardia (SVT)",
+      "Wenckebach",
+      "Asystole"
+    ],
+    correct: 0,
+    explanation: "AIVR is often called a 'reperfusion arrhythmia' and is a common, usually benign sign that blood flow has been restored to the heart muscle."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Pathology"],
+    question: "An aortic aneurysm is defined as:",
+    options: [
+      "A tear in the inner layer of the aortic wall",
+      "A localized dilation of the aorta to at least 1.5 times its normal diameter",
+      "The buildup of calcium on the aortic valve",
+      "A congenital narrowing of the aortic arch"
+    ],
+    correct: 1,
+    explanation: "An aneurysm is a permanent localized dilation of an artery having at least a 50% increase in diameter compared with the expected normal diameter."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Pathology", "ECG"],
+    question: "What condition is characterized by diffuse ST segment elevation in multiple leads and may be accompanied by pleuritic chest pain and a pericardial friction rub?",
+    options: [
+      "Acute Myocardial Infarction",
+      "Stable Angina",
+      "Pericarditis",
+      "Left Bundle Branch Block"
+    ],
+    correct: 2,
+    explanation: "Pericarditis typically shows 'global' or diffuse ST elevation across most leads, unlike an MI which is localized to specific vascular territories."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Pathology", "Assessment"],
+    question: "Signs of right-sided heart failure are associated with all of the following EXCEPT:",
+    options: [
+      "Jugular Venous Distention (JVD)",
+      "Peripheral pitting edema",
+      "Pulmonary edema and crackles",
+      "Hepatomegaly (enlarged liver)"
+    ],
+    correct: 2,
+    explanation: "Pulmonary edema and crackles are hallmark signs of left-sided heart failure; right-sided failure backs up into the body, not the lungs."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Pathology", "Assessment"],
+    question: "What clinical signs are indicative of cardiac tamponade, often referred to as Beck's Triad?",
+    options: [
+      "Hypertension, bradycardia, and irregular respirations",
+      "Hypotension, JVD, and muffled heart tones",
+      "Tachycardia, wheezing, and pale skin",
+      "Narrow pulse pressure, fever, and chest pain"
+    ],
+    correct: 1,
+    explanation: "Beck's Triad consists of three classic signs: muffled heart sounds, JVD, and hypotension."
+  },
+  {
+    module: "Cardiology",
+    tags: ["ECG"],
+    question: "Unlike an idioventricular rhythm, an agonal rhythm:",
+    options: [
+      "Is faster than 40 beats per minute",
+      "Is characterized by narrow QRS complexes",
+      "Is an extremely slow, irregular ventricular rhythm seen in dying patients",
+      "Always produces a palpable pulse"
+    ],
+    correct: 2,
+    explanation: "Agonal rhythms are terminal events where the heart's electrical system is failing, resulting in very slow and irregular ventricular complexes."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Pathology", "Assessment"],
+    question: "Angina pectoris is:",
+    options: [
+      "Permanent damage to the heart muscle due to lack of oxygen",
+      "Chest pain or discomfort that occurs when the heart muscle does not get enough blood",
+      "A sharp, stabbing pain caused by inflammation of the pericardium",
+      "The clinical term for a total blockage of a coronary artery"
+    ],
+    correct: 1,
+    explanation: "Angina pectoris is the medical term for chest pain or discomfort caused by myocardial ischemia, which is a temporary lack of oxygen to the heart muscle."
+  },
+  {
+    module: "Cardiology",
+    tags: ["ECG", "Pathology"],
+    question: "The following SVT occurs more often in younger women and may be comorbid with WPW:",
+    options: [
+      "Atrial Fibrillation",
+      "Atrioventricular Nodal Reentrant Tachycardia (AVNRT)",
+      "Atrial Flutter",
+      "Junctional Tachycardia"
+    ],
+    correct: 1,
+    explanation: "AVNRT is the most common regular SVT, frequently appearing in younger women, and involves a reentry circuit that can be associated with accessory pathways like those in Wolff-Parkinson-White syndrome."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Pathology"],
+    question: "Which pathological process is primarily responsible for the narrowing of coronary arteries in Coronary Artery Disease (CAD)?",
+    options: [
+      "Vasodilation of the tunica media",
+      "Atherosclerosis (accumulation of plaque)",
+      "Thinning of the endothelial lining",
+      "Excessive production of red blood cells"
+    ],
+    correct: 1,
+    explanation: "CAD is primarily caused by atherosclerosis, where plaque builds up inside the coronary arteries, restricting blood flow to the heart muscle."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Pharmacology"],
+    question: "Which of the following is a common adverse effect associated with the use of calcium channel blockers?",
+    options: [
+      "Hypertension and tachycardia",
+      "Hypotension and bradycardia",
+      "Hyperglycemia and seizures",
+      "Visual disturbances and yellow halos"
+    ],
+    correct: 1,
+    explanation: "Calcium channel blockers slow the heart rate and cause vasodilation, which can lead to the side effects of low blood pressure and a slow heart rate."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Pathology", "Assessment"],
+    question: "Which statement accurately describes the primary difference between stable angina and myocardial infarction (MI)?",
+    options: [
+      "Angina pain lasts longer than 30 minutes",
+      "Angina is relieved by rest or nitroglycerin, while MI pain typically is not",
+      "Angina involves permanent tissue necrosis, while MI does not",
+      "Angina only occurs in the legs, while MI occurs in the chest"
+    ],
+    correct: 1,
+    explanation: "Stable angina is predictable and relieved by rest or medication; an MI involves actual death of heart tissue and the pain typically does not resolve with simple rest."
+  },
+  {
+    module: "Cardiology",
+    tags: ["ACLS", "Pathology"],
+    question: "In the case of a patient experiencing cardiac arrest with a confirmed diagnosis of an abdominal aortic aneurysm (AAA) and presenting an idioventricular rhythm, what is the recommended initial management approach?",
+    options: [
+      "Immediate synchronized cardioversion",
+      "High-quality CPR and identifying reversible causes",
+      "Administration of high-dose Atropine",
+      "Immediate surgical intervention on-scene"
+    ],
+    correct: 1,
+    explanation: "Initial management of cardiac arrest with an idioventricular rhythm (a form of PEA) focuses on high-quality CPR and addressing the underlying cause, which in this case is likely catastrophic hypovolemia from the AAA."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Pathology", "Assessment"],
+    question: "Back pain, nausea, and weak femoral pulses are symptoms of what aneurysm location?",
+    options: [
+      "Thoracic aorta",
+      "Abdominal aorta",
+      "Cerebral artery",
+      "Carotid artery"
+    ],
+    correct: 1,
+    explanation: "Weak or absent femoral pulses combined with abdominal or back pain are classic indicators of an abdominal aortic aneurysm (AAA) that is expanding or dissecting."
+  },
+  {
+    module: "Cardiology",
+    tags: ["ECG"],
+    question: "Which of the following best describes the key feature of junctional rhythms in an electrocardiogram (ECG)?",
+    options: [
+      "Wide and bizarre QRS complexes",
+      "Absent, inverted, or retrograde P waves",
+      "A PR interval greater than 0.20 seconds",
+      "A heart rate consistently above 150 bpm"
+    ],
+    correct: 1,
+    explanation: "In junctional rhythms, the impulse originates in the AV junction, meaning P waves are often inverted, buried in the QRS, or appear immediately after it."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Pharmacology", "Pathology"],
+    question: "A patient has an MI, CHF, and pulmonary edema. At the ICU they are started on nitroglycerin, why?",
+    options: [
+      "To increase heart rate and cardiac output",
+      "To reduce preload and myocardial oxygen demand",
+      "To cause systemic vasoconstriction and raise BP",
+      "To directly dissolve the coronary clot"
+    ],
+    correct: 1,
+    explanation: "Nitroglycerin acts as a venodilator, reducing preload (the amount of blood returning to the heart), which helps alleviate pulmonary edema and lowers the workload on the damaged heart muscle."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Pathology"],
+    question: "What is an MI?",
+    options: [
+      "A temporary narrowing of the heart valves",
+      "Death of heart muscle tissue due to prolonged lack of oxygen",
+      "An infection of the inner lining of the heart chambers",
+      "A sudden drop in blood pressure caused by dehydration"
+    ],
+    correct: 1,
+    explanation: "A Myocardial Infarction (MI) occurs when blood flow to a part of the heart is blocked long enough that the heart muscle begins to die (necrosis)."
   }
 ];
