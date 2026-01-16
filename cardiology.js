@@ -1013,5 +1013,148 @@ const CARDIOLOGY_QUESTIONS = [
     ],
     correct: 1,
     explanation: "A Myocardial Infarction (MI) occurs when blood flow to a part of the heart is blocked long enough that the heart muscle begins to die (necrosis)."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Physiology"],
+    question: "According to Starling's Law, what is the primary determinant of stroke volume?",
+    options: [
+      "The heart rate at the time of contraction",
+      "The volume of blood entering the heart during diastole (preload)",
+      "The systemic vascular resistance (afterload)",
+      "The level of circulating epinephrine"
+    ],
+    correct: 1,
+    explanation: "Starling's Law states that the greater the volume of blood entering the heart during diastole (end-diastolic volume), the greater the volume of blood ejected during systolic contraction (stroke volume)."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Physics", "Physiology"],
+    question: "Poiseuille’s Law suggests that fluid flow through a vessel is most significantly affected by which factor?",
+    options: [
+      "The length of the vessel",
+      "The viscosity of the blood",
+      "The diameter of the vessel",
+      "The temperature of the fluid"
+    ],
+    correct: 2,
+    explanation: "Poiseuille’s Law states that the larger the diameter of a tube, the more fluid can flow through it, increased to the 4th power."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Vitals"],
+    question: "Pulse pressure is mathematically defined as:",
+    options: [
+      "The sum of systolic and diastolic pressures",
+      "The difference between systolic and diastolic pressures",
+      "One-third of the systolic pressure",
+      "The average pressure throughout the cardiac cycle"
+    ],
+    correct: 1,
+    explanation: "Pulse pressure is the numerical difference between the systolic and diastolic blood pressure readings."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Vitals"],
+    question: "What is considered the normal range for Mean Arterial Pressure (MAP)?",
+    options: [
+      "40 - 60 mmHg",
+      "70 - 100 mmHg",
+      "110 - 140 mmHg",
+      "60 - 80 mmHg"
+    ],
+    correct: 1,
+    explanation: "The normal range for Mean Arterial Pressure (MAP) is typically between 70 and 100 mmHg."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Neurology", "Anatomy"],
+    question: "Which structure provides the sympathetic nervous system connection to the heart?",
+    options: [
+      "The Vagus Nerve",
+      "The Cardiac Plexus",
+      "The Phrenic Nerve",
+      "The Medulla Oblongata"
+    ],
+    correct: 1,
+    explanation: "The Cardiac Plexus, situated near the arch of the aorta, supplies the heart with its sympathetic nervous system connections, while the Vagus nerve provides parasympathetic input."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Physiology", "Renal"],
+    question: "In the Renin-Angiotensin system, what is the role of Angiotensin-Converting Enzyme (ACE)?",
+    options: [
+      "It converts Angiotensinogen into Renin",
+      "It converts Angiotensin 1 into Angiotensin 2",
+      "It causes the kidneys to secrete more Renin",
+      "It directly triggers the release of Aldosterone"
+    ],
+    correct: 1,
+    explanation: "The kidneys secrete renin to create Angiotensin 1; the lungs then secrete ACE to change Angiotensin 1 into Angiotensin 2."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Physiology", "Endocrine"],
+    question: "How does Angiotensin 2 work to increase blood pressure?",
+    options: [
+      "By causing systemic vasodilation",
+      "By inhibiting the release of Aldosterone",
+      "By causing vasoconstriction and stimulating Aldosterone to retain water",
+      "By decreasing the heart rate"
+    ],
+    correct: 2,
+    explanation: "Angiotensin 2 causes potent vasoconstriction and triggers the adrenals to secrete aldosterone, which causes the body to retain water, both of which raise blood pressure."
+  },
+  {
+    module: "Cardiology",
+    tags: ["ACLS", "Assessment"],
+    question: "What is the appropriate prehospital care for a patient in Atrial Flutter who is hemodynamically stable (no signs of shock)?",
+    options: [
+      "Immediate synchronized cardioversion at 50J",
+      "Administration of Adenosine 6mg rapid IV push",
+      "IV access, O2, supportive care, and transport",
+      "Vagal maneuvers and immediate pacing"
+    ],
+    correct: 2,
+    explanation: "A stable patient in atrial flutter without signs of shock requires standard supportive care: IV, oxygen if indicated, monitoring, and transport."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Physiology", "ECG"],
+    question: "During the absolute refractory period, which of the following is true?",
+    options: [
+      "The heart can be stimulated by a very strong electrical impulse",
+      "Myocytes are unable to fire or conduct an impulse regardless of stimulus",
+      "The heart is in a state of hyper-excitability",
+      "It corresponds exactly with the P-wave on an ECG"
+    ],
+    correct: 1,
+    explanation: "The absolute refractory period is a short time after depolarization where myocytes are not yet repolarized and cannot fire or conduct an impulse; a heartbeat cannot be generated during this time."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Shock", "Pharmacology"],
+    question: "Which medication is the primary choice for treating Cardiogenic Shock with hypotension?",
+    options: [
+      "Amiodarone 150mg",
+      "Dopamine 2-20 mcg/kg/min",
+      "Nitroglycerin 0.4mg",
+      "Atropine 1mg"
+    ],
+    correct: 1,
+    explanation: "Cardiogenic shock is caused by cardiac origin where the heart cannot meet metabolic demands; Dopamine (2-20 mcg/kg/min) is the primary drug used to increase BP and contractility."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Shock", "Assessment"],
+    question: "When managing a patient in cardiogenic shock, in what order should you address clinical issues?",
+    options: [
+      "BP, then Rate, then Rhythm",
+      "Rate, then BP, then Rhythm",
+      "Rhythm, then BP, then Rate",
+      "Rate, then Rhythm, then BP"
+    ],
+    correct: 1,
+    explanation: "When treating cardiac-driven emergencies like cardiogenic shock, remember the order of priority: Treat the RATE first, then the BP, and then the RHYTHM."
   }
 ];
