@@ -853,7 +853,7 @@ const MEDICAL_QUESTIONS = [
       "Retinal Artery Occlusion",
       "Detached Retina",
       "Glaucoma"
-  ],
+	],
     correct: 2,
     explanation: "A detached retina is classically described by patients as a dark curtain or veil obstructing part of their field of vision."
   },
@@ -1222,4 +1222,3 @@ const MEDICAL_QUESTIONS = [
     explanation: "Epinephrine provides bronchodilation (beta-2) to open the airway and vasoconstriction (alpha-1) to raise blood pressure and reduce swelling."
   }
 ];
-
