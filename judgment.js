@@ -648,5 +648,135 @@ const CLINICAL_JUDGMENT_QUESTIONS = [
     ],
     correct: 1,
     explanation: "Pre-oxygenation creates an oxygen reservoir in the lungs, extending safe apnea time."
+  },
+  {
+    module: "ClinicalJudgment",
+    tags: ["Trauma", "Cardiology"],
+    question: "A 67-year-old male with a history of hypertension (HTN) collapses after a morning of nausea and low back pain. He is pulseless and apneic with a large distended abdomen. The monitor shows an idioventricular rhythm. What is the most likely cause?",
+    options: [
+      "Anaphylactic shock",
+      "Abdominal Aortic Aneurysm (AAA) rupture",
+      "Acute Tension Pneumothorax",
+      "Septic shock from a UTI"
+    ],
+    correct: 1,
+    explanation: "The combination of low back pain, sudden collapse, a distended abdomen, and an idioventricular rhythm (often associated with profound hypovolemia) strongly suggests a ruptured AAA."
+  },
+  {
+    module: "ClinicalJudgment",
+    tags: ["Cardiology", "Assessment"],
+    question: "A 42-year-old male experienced syncope while golfing. He is dizzy and nauseated with a BP of 70/40 and sinus tachycardia at 160 bpm. Oxygen and fluid challenges have resulted in no change. What is your next priority action?",
+    options: [
+      "Administer 0.4mg Nitroglycerin",
+      "Perform a 12-lead ECG",
+      "Administer 6mg of Adenosine",
+      "Begin immediate chest compressions"
+    ],
+    correct: 1,
+    explanation: "In a syncopal patient with profound hypotension and tachycardia that is unresponsive to fluids, you must assume a cardiac origin and perform a 12-lead ECG to rule out ischemia or injury."
+  },
+  {
+    module: "ClinicalJudgment",
+    tags: ["Assessment", "Pathology"],
+    question: "A 35-year-old female smoker on birth control presents with sudden onset shortness of breath and clear lung sounds. What is the most likely predisposing factor for her condition?",
+    options: [
+      "A recent viral infection",
+      "Chronic hypertension",
+      "Recent long-distance travel or inactivity",
+      "A history of childhood asthma"
+    ],
+    correct: 2,
+    explanation: "This is a classic 'red flag' for Pulmonary Embolism (PE). Predisposing factors include smoking, birth control, surgery, and long periods of inactivity."
+  },
+  {
+    module: "ClinicalJudgment",
+    tags: ["Pharmacology", "Airway"],
+    question: "A 54-year-old male feels his throat 'closing up.' He has no history of allergies but recently started taking Zestril (Lisinopril) for hypertension. He presents with laryngeal edema and stridor. What is the likely cause?",
+    options: [
+      "Bacterial epiglottitis",
+      "An ACE inhibitor-induced allergic response",
+      "Acute pulmonary edema",
+      "Foreign body airway obstruction"
+    ],
+    correct: 1,
+    explanation: "ACE inhibitors (ending in 'pril') are a classic cause of laryngeal edema and angioedema, even in patients with no prior allergy history."
+  },
+  {
+    module: "ClinicalJudgment",
+    tags: ["Trauma", "Assessment"],
+    question: "A tall, thin male presents with sudden shortness of breath after a coughing fit. You note absent breath sounds on the right side. Which sign should you monitor for to determine if this is progressing to a tension pneumothorax?",
+    options: [
+      "Flat neck veins",
+      "A widening pulse pressure",
+      "JVD and a narrowing pulse pressure",
+      "Productive cough with yellow sputum"
+    ],
+    correct: 2,
+    explanation: "In a spontaneous pneumothorax, monitor for JVD and a narrowing pulse pressure, which indicate a tension pneumothorax is developing."
+  },
+  {
+    module: "ClinicalJudgment",
+    tags: ["Pediatrics", "Airway"],
+    question: "You are called to a 4-year-old with a high fever and a sore throat. The child is sitting in a tripod position, drooling, and has no cough. What is your most critical clinical contraindication?",
+    options: [
+      "Administering humidified oxygen",
+      "Attempting to visualize the airway or intubate on-scene",
+      "Placing the patient in a supine position",
+      "Administering nebulized Albuterol"
+    ],
+    correct: 1,
+    explanation: "This child has classic signs of Epiglottitis. Any attempt to visualize the airway with a tongue depressor or an ET tube can cause immediate laryngospasm and total airway obstruction."
+  },
+  {
+    module: "ClinicalJudgment",
+    tags: ["Pediatrics", "Trauma"],
+    question: "You are treating a 2-year-old who was pulled from a pool. The child is cyanotic and apneic, but you palpate a brachial pulse of 90. What is your immediate priority?",
+    options: [
+      "Starting chest compressions",
+      "Performing a rapid trauma assessment",
+      "Providing BVM ventilations with high-flow O2",
+      "Suctioning the airway for 30 seconds"
+    ],
+    correct: 2,
+    explanation: "In pediatrics, if the pulse is above 60, focus on oxygenation and ventilation first. This child is in respiratory arrest, not cardiac arrest."
+  },
+  {
+    module: "ClinicalJudgment",
+    tags: ["Infectious Disease", "BSI"],
+    question: "A child has had a high fever for four days. When you move his head during your assessment, his legs involuntarily pull up toward his chest. After recognizing this sign, what is your next action?",
+    options: [
+      "Check for a petechial rash and ensure you are wearing an N95 respirator",
+      "Administer 500ml of Normal Saline",
+      "Place the child in a Trendelenburg position",
+      "Assume the child is being defiant and continue the exam"
+    ],
+    correct: 0,
+    explanation: "A positive Brudzinski’s sign indicates Meningitis. Recognition of this 'red flag' requires immediate BSI (N95) for the provider and a high index of suspicion for septic shock/MODS."
+  },
+  {
+    module: "ClinicalJudgment",
+    tags: ["Toxicology", "Pediatrics"],
+    question: "A 5-year-old child is found in a comatose state following a viral 'flu-like' illness. The parents mention they gave the child aspirin to help with the fever. This combination of symptoms should lead you to suspect:",
+    options: [
+      "Acute Salicylate poisoning",
+      "Reye’s Syndrome",
+      "Meningococcal meningitis",
+      "Diabetic Ketoacidosis"
+    ],
+    correct: 1,
+    explanation: "Reye’s Syndrome is a life-threatening condition involving brain and liver swelling, classically triggered by using aspirin during a viral illness in children."
+  },
+  {
+    module: "ClinicalJudgment",
+    tags: ["Trauma", "Assessment"],
+    question: "While treating a 7-year-old for an ankle fracture, you note the child is unusually quiet, apathetic, and does not cry or seek comfort from the parents. How should this affect your clinical reasoning?",
+    options: [
+      "It indicates the child has a high pain tolerance",
+      "It suggests the child is in the early stages of neurogenic shock",
+      "It should raise a high index of suspicion for potential child abuse",
+      "It is a normal developmental milestone for this age group"
+    ],
+    correct: 2,
+    explanation: "Apathy and a lack of emotional response to pain or injury in children are significant 'red flag' indicators of potential abuse or neglect."
   }
 ];
