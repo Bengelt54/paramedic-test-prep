@@ -388,5 +388,239 @@ const OPERATIONS_QUESTIONS = [
     ],
     correct: 1,
     explanation: "Fast-moving water that is knee-deep or higher can easily knock a rescuer off their feet."
+  },
+  {
+    module: "Operations",
+    tags: ["Legal", "Negligence"],
+    question: "The 'Proximate Cause' component of negligence is best described as:",
+    options: [
+      "The EMT's legal obligation to provide care",
+      "A clear and reasonable cause-and-effect relationship between the provider's action and the injury",
+      "The failure of a provider to meet the standard of care",
+      "The physical or psychological harm suffered by the patient"
+    ],
+    correct: 1,
+    explanation: "Proximate cause requires a reasonable cause-and-effect link, such as a patient suffering a fracture specifically because an EMT dropped them during a lift."
+  },
+  {
+    module: "Operations",
+    tags: ["Legal", "Consent"],
+    question: "Which of the following individuals would most likely be considered an 'Emancipated Minor'?",
+    options: [
+      "A 16-year-old living with their parents but working a part-time job",
+      "A 17-year-old serving in the military who has been granted independence by court order",
+      "A 14-year-old who is currently failing high school",
+      "Any minor who is extremely thin or malnourished"
+    ],
+    correct: 1,
+    explanation: "Emancipation is a legal status granted by a court allowing a minor to make their own decisions; common criteria include marriage, military service, or financial independence. Do not confuse it with 'emaciated.'"
+  },
+  {
+    module: "Operations",
+    tags: ["Legal", "Consent"],
+    question: "Implied consent, often utilized for unconscious patients, is also known as the:",
+    options: [
+      "In Loco Parentis Doctrine",
+      "Emergency Doctrine",
+      "Involuntary Rule",
+      "Standard of Care"
+    ],
+    correct: 1,
+    explanation: "Implied consent, or the 'Emergency Doctrine,' is the assumption that a person unable to give consent (such as an unconscious patient) would want life-saving treatment if they were able to ask for it."
+  },
+  {
+    module: "Operations",
+    tags: ["Legal", "Consent"],
+    question: "The legal principle of 'In Loco Parentis' applies when:",
+    options: [
+      "A patient is under the influence of drugs and cannot consent",
+      "An organization like a school or daycare takes on the functions and responsibilities of a parent",
+      "A patient is being treated against their will under a court order",
+      "A minor is pregnant and considered an adult by state law"
+    ],
+    correct: 1,
+    explanation: "In Loco Parentis allows individuals like teachers or coaches to make decisions for a minor when the parents are not present."
+  },
+  {
+    module: "Operations",
+    tags: ["MCI", "Triage"],
+    question: "Using the START triage system, what tag should be assigned to a non-breathing patient who begins breathing once their airway is manually opened?",
+    options: [
+      "Green (Minor)",
+      "Yellow (Delayed)",
+      "Red (Immediate)",
+      "Black (Deceased)"
+    ],
+    correct: 2,
+    explanation: "In START triage, if a patient is not breathing, you open the airway. If they start breathing, they are tagged Red; if they still do not breathe, they are tagged Black."
+  },
+  {
+    module: "Operations",
+    tags: ["MCI", "Triage"],
+    question: "What does the acronym SALT stand for in the context of mass casualty triage?",
+    options: [
+      "Search, Assess, Locate, Treat",
+      "Sort, Assess, Lifesaving Interventions, Treatment/Transport",
+      "Stabilize, Airway, Life-support, Triage",
+      "Secure, Analyze, Lift, Transfer"
+    ],
+    correct: 1,
+    explanation: "The SALT triage system was developed by a CDC-sponsored committee and stands for Sort, Assess, Lifesaving Interventions, Treatment, and Transport."
+  },
+  {
+    module: "Operations",
+    tags: ["Legal", "Documentation"],
+    question: "Why is it considered 'libel' to describe a patient as 'drunk' in a written PCR without medical confirmation?",
+    options: [
+      "It is a verbal statement that is untrue",
+      "It is a written opinion that is not a fact until confirmed by medical tests",
+      "It is an act of nonfeasance",
+      "It violates the EMT's duty to act"
+    ],
+    correct: 1,
+    explanation: "Libel is written defamation. Labeling a patient as 'drunk' is an opinion/conclusion; until blood work or medical exams confirm it, documenting it can be legally problematic."
+  },
+  {
+    module: "Operations",
+    tags: ["Physics", "Trauma"],
+    question: "In the kinetic energy formula ($KE = 1/2 mass \times velocity^2$), which variable has the most significant impact on the total energy produced?",
+    options: [
+      "Mass",
+      "Velocity (Speed)",
+      "Gravity",
+      "Friction"
+    ],
+    correct: 1,
+    explanation: "Because velocity is squared in the formula, even small increases in speed result in much larger increases in kinetic energy."
+  },
+  {
+    module: "Operations",
+    tags: ["Physics", "Environmental"],
+    question: "Boyle’s Law states that as the pressure on a gas decreases (such as an ascending weather balloon), the volume of that gas will:",
+    options: [
+      "Decrease",
+      "Increase",
+      "Stay the same",
+      "Solidify"
+    ],
+    correct: 1,
+    explanation: "Boyle’s Law (P1V1 = P2V2) establishes that pressure and volume are inversely proportional; as pressure drops at higher altitudes, the volume inside a balloon or an air-filled organ will expand."
+  },
+  {
+    module: "Operations",
+    tags: ["Physics", "Equipment"],
+    question: "According to Poiseuille's law, if you double the internal diameter of an IV catheter, the flow rate will increase by how many times?",
+    options: [
+      "2x",
+      "4x",
+      "8x",
+      "16x"
+    ],
+    correct: 3,
+    explanation: "Poiseuille's law demonstrates that flow is related to the radius of the tube to the 4th power ($2^4 = 16$)."
+  },
+  {
+    module: "Operations",
+    tags: ["Legal", "Consent"],
+    question: "Which form of consent is based on the assumption that an unconscious or incapacitated patient would want life-saving treatment?",
+    options: [
+      "Expressed consent",
+      "Involuntary consent",
+      "Implied consent",
+      "In loco parentis"
+    ],
+    correct: 2,
+    explanation: "Implied consent, also known as the 'Emergency Doctrine,' is used when a patient is unable to give consent (e.g., unconscious) but is in need of immediate medical attention."
+  },
+  {
+    module: "Operations",
+    tags: ["Legal", "Consent"],
+    question: "A teacher or daycare provider who gives permission for a minor to be treated in the absence of a parent is acting under the legal principle of:",
+    options: [
+      "Implied consent",
+      "In loco parentis",
+      "Emancipated minor doctrine",
+      "Involuntary consent"
+    ],
+    correct: 1,
+    explanation: "In loco parentis is the legal responsibility of a person or organization (like a school or coach) to take on the functions and responsibilities of a parent."
+  },
+  {
+    module: "Operations",
+    tags: ["Legal", "Decision-Making"],
+    question: "Which of the following is the primary requirement for a patient to have 'Decision-Making Capacity' to refuse care?",
+    options: [
+      "The patient must be at least 21 years old",
+      "The patient must be free of any physical injury",
+      "The patient must understand the circumstances of their illness and the risks of refusal",
+      "The patient must have a witness present to sign the refusal"
+    ],
+    correct: 2,
+    explanation: "Decision-making capacity requires that an individual is alert, oriented, and can understand their impairment as well as the risks associated with refusing transport."
+  },
+  {
+    module: "Operations",
+    tags: ["Legal", "Consent"],
+    question: "Involuntary consent is most commonly applied to which type of patient?",
+    options: [
+      "A minor whose parents are present but disagreeing",
+      "A conscious adult who is refusing care for a broken arm",
+      "A patient in a mental health emergency who is a threat to themselves or others",
+      "An unconscious patient found in a public park"
+    ],
+    correct: 2,
+    explanation: "Involuntary consent occurs when a patient is legally authorized to receive treatment against their will, such as mental health emergencies or those under arrest/court order."
+  },
+  {
+    module: "Operations",
+    tags: ["MCI", "Command"],
+    question: "Which command system is used in large incidents involving multiple agencies or jurisdictions to ensure a coordinated response?",
+    options: [
+      "Single Command",
+      "Unified Command System",
+      "Administrative Command",
+      "Modular Command"
+    ],
+    correct: 1,
+    explanation: "A Unified Command system is utilized in large-scale incidents where multiagency response or multiple jurisdictions are involved."
+  },
+  {
+    module: "Operations",
+    tags: ["Legal", "Communications"],
+    question: "A reporter at a scene asks for the name and condition of a patient you are treating. What information are you legally allowed to provide?",
+    options: [
+      "The patient's name only",
+      "The patient's age and general condition",
+      "The hospital they are being transported to",
+      "Nothing"
+    ],
+    correct: 3,
+    explanation: "Paramedics should provide no information to reporters to protect patient privacy and comply with HIPAA regulations."
+  },
+  {
+    module: "Operations",
+    tags: ["Safety", "Infectious Disease"],
+    question: "What is the best way to minimize the risk of infection when transporting a patient with suspected meningitis?",
+    options: [
+      "Administer prophylactic antibiotics to yourself immediately",
+      "Wear a gown and double gloves",
+      "Place a mask on both yourself and the patient",
+      "Keep all ambulance windows open during transport"
+    ],
+    correct: 2,
+    explanation: "Proper BSI for meningitis, which is spread via droplets, involves masking both the provider and the patient."
+  },
+  {
+    module: "Operations",
+    tags: ["Physics", "Environmental"],
+    question: "Henry's Law, which relates to decompression sickness, states that:",
+    options: [
+      "Pressure and volume are inversely proportional",
+      "The amount of gas in a liquid is proportional to the pressure of the gas above it",
+      "Double the diameter of a tube increases flow 16 times",
+      "Total pressure is the sum of partial pressures"
+    ],
+    correct: 1,
+    explanation: "Henry's Law explains how gases like nitrogen dissolve into the blood under pressure (like diving) and can form bubbles if pressure is released too quickly."
   }
 ];
