@@ -1156,5 +1156,174 @@ const CARDIOLOGY_QUESTIONS = [
     ],
     correct: 1,
     explanation: "When treating cardiac-driven emergencies like cardiogenic shock, remember the order of priority: Treat the RATE first, then the BP, and then the RHYTHM."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Pathology", "Heart Failure"],
+    question: "What is the most common cause of right-sided heart failure?",
+    options: [
+      "Chronic Obstructive Pulmonary Disease (COPD)",
+      "Left-sided heart failure",
+      "Pulmonary Embolism",
+      "Myocardial Infarction"
+    ],
+    correct: 1,
+    explanation: "While COPD is a common cause, the number one cause of right-sided heart failure is actually left-sided heart failure. Left-sided failure leads to back-pressure in the lungs, which eventually forces the right ventricle to work harder and fail."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Assessment", "Heart Failure"],
+    question: "You are assessing a patient with wet lung sounds (pulmonary edema). Based on the primary causes of heart failure, which question is most critical to ask yourself?",
+    options: [
+      "Is the patient having an allergic reaction?",
+      "Is the patient having a Myocardial Infarction?",
+      "Does the patient have a history of asthma?",
+      "Has the patient been exposed to toxic fumes?"
+    ],
+    correct: 1,
+    explanation: "The number one cause of pulmonary edema is left-sided failure, and the number one cause of left-sided failure is a Myocardial Infarction (MI). Therefore, wet lungs should always prompt an immediate assessment for an MI."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Assessment", "Vitals"],
+    question: "A mechanical problem in the left ventricle results in a weak/strong/weak/strong pulse quality. This finding is known as:",
+    options: [
+      "Pulsus Paradoxus",
+      "Pulsus Alternans",
+      "Electrical Alternans",
+      "Pulse Deficit"
+    ],
+    correct: 1,
+    explanation: "Pulsus Alternans is a mechanical problem associated with left heart failure. It occurs when a reduced stroke volume cycle is followed by a compensatory cycle where increased stretch leads to a stronger contraction."
+  },
+  {
+    module: "Cardiology",
+    tags: ["ECG", "Pathology"],
+    question: "A pericardial effusion causes the electrical amplitude on an ECG to appear strong/weak/strong/weak. This finding is known as:",
+    options: [
+      "Pulsus Alternans",
+      "Electrical Alternans",
+      "Delta Wave",
+      "Global ST Elevation"
+    ],
+    correct: 1,
+    explanation: "Electrical Alternans occurs when fluid around the pericardium 'blankets' electrical activity or allows the heart to swing, causing alternating heights of the QRS complexes."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Pathology", "Assessment"],
+    question: "Stokes-Adams Syndrome involves sudden fainting, often lasting less than a minute. What is the common underlying cause of this syncope?",
+    options: [
+      "Transient heart blocks resulting in cerebral hypoxia",
+      "Permanent Atrial Fibrillation",
+      "Acute hypertensive crisis",
+      "Vasovagal response to pain"
+    ],
+    correct: 0,
+    explanation: "Stokes-Adams Syndrome is caused by sudden slowing of the heart rate, often due to transient (non-permanent) heart blocks, which leads to a lack of oxygen to the brain."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Pharmacology", "Calculations"],
+    question: "If you mix 2g of Lidocaine in a 500cc solution, what is the concentration per mL?",
+    options: [
+      "1 mg/mL",
+      "2 mg/mL",
+      "4 mg/mL",
+      "8 mg/mL"
+    ],
+    correct: 2,
+    explanation: "2000mg (2g) divided by 500cc equals a concentration of 4mg/mL. This is the standard mixture used for 'Clock Method' drip calculations."
+  },
+  {
+    module: "Cardiology",
+    tags: ["ECG", "Pathology"],
+    question: "A 'slurred' upstroke on the QRS complex, known as a Delta wave, is a hallmark sign of which condition?",
+    options: [
+      "Lown-Ganong-Levine Syndrome",
+      "Wolff-Parkinson-White (WPW) Syndrome",
+      "Right Bundle Branch Block",
+      "Bifascicular Block"
+    ],
+    correct: 1,
+    explanation: "WPW syndrome is characterized by a high heart rate and the presence of a Delta wave, which appears as a slurred line directly entering the QRS complex."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Pharmacology"],
+    question: "Why is a patient taking Furosemide (Lasix) typically also prescribed a potassium supplement (K-Dur)?",
+    options: [
+      "Lasix causes the body to retain too much potassium",
+      "Potassium is required to activate the medication",
+      "Lasix causes the kidneys to excrete potassium, leading to hypokalemia",
+      "To prevent the development of kidney stones"
+    ],
+    correct: 2,
+    explanation: "Furosemide is a loop diuretic that causes the kidneys to excrete more potassium into the urine. Supplements are prescribed to prevent low blood potassium (hypokalemia)."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Pathology", "Assessment"],
+    question: "A patient with Peripheral Artery Disease (PAD) experiences calf pain while walking that is relieved by rest. This is known as:",
+    options: [
+      "Deep Vein Thrombosis",
+      "Neuropathy",
+      "Claudication",
+      "Cellulitis"
+    ],
+    correct: 2,
+    explanation: "Claudication is a decrease in arterial perfusion to the calf muscles during exercise, causing pain that typically resolves when the patient stops walking."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Assessment", "ACLS"],
+    question: "A patient states their 'heart is beating out of my chest' and you identify SVT. If the patient is unstable, what is the appropriate treatment?",
+    options: [
+      "Adenosine 6mg rapid IV push",
+      "Synchronized cardioversion at 100 Joules",
+      "Vagal maneuvers",
+      "Amiodarone 150mg over 10 minutes"
+    ],
+    correct: 1,
+    explanation: "For unstable SVT (determined by 'CHAP'—Chest pain, Hypotension, Altered mental status, Pulmonary edema), the priority treatment is immediate synchronized cardioversion."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Assessment", "Pathology"],
+    question: "What is considered the classic sign of a Myocardial Infarction (MI)?",
+    options: [
+      "Sharp, pleuritic chest pain",
+      "Crushing substernal chest pain",
+      "Numbness in the right leg",
+      "Fever and chills"
+    ],
+    correct: 1,
+    explanation: "While symptoms can vary, crushing substernal chest pain is the classic presentation of an MI. Other signs can include toothaches or epigastric pain."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Assessment", "Pathology"],
+    question: "Which of the following findings is most characteristic of a Thoracic Aortic Aneurysm?",
+    options: [
+      "Gradual onset of dull abdominal pain",
+      "Tearing chest pain radiating to the shoulder blades and a radial pulse discrepancy",
+      "Wet lung sounds and bilateral pedal edema",
+      "Localized tenderness at McBurney's point"
+    ],
+    correct: 1,
+    explanation: "Thoracic aneurysms often present with tearing chest pain that radiates to the back or shoulder blades. A discrepancy between the radial pulses is a key diagnostic sign."
+  },
+  {
+    module: "Cardiology",
+    tags: ["Assessment", "Respiratory"],
+    question: "A patient presents with a sudden onset of shortness of breath (SOB) without a clear mechanical cause. You should have a high index of suspicion for:",
+    options: [
+      "Pneumonia",
+      "Pulmonary Embolism (PE)",
+      "Chronic Bronchitis",
+      "Croup"
+    ],
+    correct: 1,
+    explanation: "Sudden onset of dyspnea is a classic 'red flag' for a pulmonary embolism."
   }
 ];
